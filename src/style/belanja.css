@@ -1,0 +1,107 @@
+.kotak_login {
+  width: 550px;
+  border-radius: 25px;
+  background: #618985;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  /*meletakkan form ke tengah*/
+  margin: 10px auto;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  color: #414535;
+  text-align: center;
+  margin: 30px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Poppins;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.input-form {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  font-size: 11pt;
+  margin-bottom: 20px;
+}
+
+.input-right {
+  box-sizing: border-box;
+  width: 30%;
+  padding: 10px;
+  font-size: 11pt;
+  margin-bottom: 20px;
+}
+
+.input-left {
+  box-sizing: border-box;
+  width: 70%;
+  padding: 10px;
+  font-size: 11pt;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: flex;
+  margin-bottom: 30px;
+  gap: 30px;
+}
+
+.btn-submit {
+  color: white;
+  font-size: 11pt;
+  width: 80%;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: #c19875;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.btn-masak {
+  color: white;
+  font-size: 11pt;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: #c19875;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.btn-belanja {
+  color: white;
+  font-size: 11pt;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: #c19875;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.btn-belanja .btn-masak .btn-submit:hover {
+  background-color: #80654e;
+}
+
+.select {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-back:hover {
+  background: #ddd;
+  cursor: pointer;
+}
