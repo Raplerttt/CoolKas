@@ -22,7 +22,7 @@ function App() {
           element={<DetailOlahBahanPage />}
         ></Route>
         <Route path="/contactUs" element={<ContactUsPage />}></Route>
-        <Route path="/belanja" element={<BelanjaPages />}></Route>
+        <Route path="/BelanjaPages" element={<BelanjaPages />}></Route>
         <Route path="/aktivitas" element={<AktitasPage />}></Route>
       </Routes>
     </Router>

@@ -1,6 +1,22 @@
-import React from "react";
-
+import React, { useEffect, useRef } from 'react';
+import $ from 'jquery';
+import 'bootstrap-datepicker';
+import 'bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css';
 const Belanja = () => {
+  const tanggalAwalRef = useRef(null);
+  const tanggalAkhirRef = useRef(null);
+  useEffect(() => {
+    $(tanggalAwalRef.current).datepicker({
+      format: 'yyyy-mm-dd',
+      autoclose: true,
+      todayHighlight: true
+    });
+    $(tanggalAkhirRef.current).datepicker({
+      format: 'yyyy-mm-dd',
+      autoclose: true,
+      todayHighlight: true
+    });
+  }, []);
   return (
     <div>
       <div className="kotak_login">
@@ -27,19 +43,38 @@ const Belanja = () => {
             required
           />
           <input
-            className="input-form"
-            type="date"
-            placeholder="Tanggal digunakan"
-            name="tanggal"
+            ref={tanggalAwalRef}
+            className="input-form datepicker"
+            type="text"
+            placeholder="Tanggal pembelian"
+            name="tanggal-awal"
             required
           />
           <input
-            className="input-form"
+            ref={tanggalAkhirRef}
+            className="input-form datepicker"
+            type="text"
+            placeholder="Tanggal kadaluarsa"
+            name="tanggal-akhir"
+            required
+          />
+          <div className="select">
+          <input
+            className="input-left"
             type="number"
             placeholder="jumlah"
             name="jumlah"
             required
           />
+          <select className="input-right" name="Jumlah Makanan">
+            <option value="">
+              Pcs
+            </option>
+            <option value="">Kg</option>
+            <option value="">Buah</option>
+            <option value="">Liter</option>
+          </select>
+          </div>
           <input
             className="input-form"
             type="text"
