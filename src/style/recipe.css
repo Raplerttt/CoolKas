@@ -1,0 +1,113 @@
+/* 
+
+RESEP
+
+*/  
+  .recipe{
+    padding: 1rem 10rem;
+  }
+  
+  .recipe h1{
+    text-align: left;
+    margin: 4rem 0rem 2rem 0rem;
+    color: white;
+    font-weight: 700;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  .recipe p{
+    font-size: 20px;
+    color: white;
+  }
+  
+  .recipe .carousel-inner .carousel-item p {
+    color: #5E6282;
+    font-size: 12px;
+  }
+  
+  .recipe .card{
+    border: none;
+    background-color: #F0F1F2;
+    border-radius: 20px;
+  }
+  
+  .recipe img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border-radius: 20px 20px 0px 0px;
+  }
+  
+  .recipe h5{
+    font-size: 22px;
+    font-weight: 600;
+  }
+  
+  .recipe .card-text{
+    font-size: 16px;
+  }
+  
+  .recipe .card-title{
+    color: black;
+    font-size: 18px;
+  }
+  
+  .recipe #seeCategory .btn{
+    background-color: #C19875;
+    border: none;
+    margin: 1rem auto;
+  }
+  
+  /* recipe carousel */
+  
+  .carousel-inner{
+    padding: 2em;
+  }
+  .card{
+    margin: 0 .5em;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    border: none;
+  }
+  .carousel-control-prev, .carousel-control-next{
+    background-color: #C19875;
+    width: 6vh;
+    height: 6vh;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .recipe .carousel-inner .btn{
+    background-color: #C19875;
+    border: none;
+  }
+
+/* responsive */
+
+  @media (min-width: 768px) {
+    .carousel-inner {
+      display: flex;
+    }
+    .carousel-item {
+      margin-right: 0;
+      flex: 0 0 33.3%;
+      display: block;
+    }
+  }
+  
+  .card .img-wrapper {
+      max-width: 100%;
+      height: 13em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .card img {
+      max-height: 100%;
+  }
+  @media (max-width: 767px) {
+    .card .img-wrapper {
+      height: 17em;
+    }
+  }
