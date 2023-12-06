@@ -47,7 +47,7 @@ const Belanja = () => {
             className="input-form datepicker"
             type="text"
             placeholder="Tanggal pembelian"
-            name="tanggal-awal"
+            name="tanggal-pembelian"
             required
           />
           <input
@@ -55,7 +55,7 @@ const Belanja = () => {
             className="input-form datepicker"
             type="text"
             placeholder="Tanggal kadaluarsa"
-            name="tanggal-akhir"
+            name="tanggal-kadaluarsa"
             required
           />
           <div className="select">
@@ -63,10 +63,10 @@ const Belanja = () => {
             className="input-left"
             type="number"
             placeholder="jumlah"
-            name="jumlah"
+            name="jumlah-bahan"
             required
           />
-          <select className="input-right" name="Jumlah Makanan">
+          <select className="input-right" name="type-makanan">
             <option value="">
               Pcs
             </option>
