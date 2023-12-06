@@ -6,7 +6,7 @@ const getData = () => {
       deskripsi:
         "Lorem ipsum dolor sit amet consectetur. Malesuada at maecenas imperdiet scelerisque mattis. Mauris etiam auctor blandit massa vitae magnis enim non dui.",
       cara: "Aliquam purus porta ipsum aliquam lacus. ",
-      image: "/assets/imageOlahBahan.jpg",
+      image: "/assets/olah-limbah.png",
       link: "https://youtu.be/9GYcmMsxl-Y?si=20sGDMiZlaIS1QwW",
       jenis: ["a", "b", "c", "d"],
     },
@@ -16,7 +16,7 @@ const getData = () => {
       deskripsi:
         "A iaculis cursus pretium elementum porttitor a. Elit risus proin in feugiat enim aliquet massa. Porttitor nunc pharetra urna urna. Convallis pulvinar bibendum vitae mattis porttitor. Nec eget potenti nunc vulputate. Convallis enim etiam commodo vel felis ultricies quisque in. Ut ultricies tortor egestas ut senectus neque. Quam duis nunc massa ligula est vitae senectus. Orci vel semper a integer lectus varius urna tortor. Sed at vel at elementum. Id lobortis cum commodo vel. Leo aliquam id hendrerit diam nunc semper eu feugiat sed.Lorem ipsum dolor sit amet consectetur. Malesuada at maecenas imperdiet scelerisque mattis. Mauris etiam auctor blandit massa vitae magnis enim non dui.",
       cara: "Aliquam purus porta ipsum aliquam lacus. A iaculis cursus pretium elementum porttitor a. Elit risus proin in feugiat enim aliquet massa. Porttitor nunc pharetra urna urna. Convallis pulvinar bibendum vitae mattis porttitor. Nec eget potenti nunc vulputate. Convallis enim etiam commodo vel felis ultricies quisque in. Ut ultricies tortor egestas ut senectus neque. Quam duis nunc massa ligula est vitae senectus. Orci vel semper a integer lectus varius urna tortor. Sed at vel at elementum. Id lobortis cum commodo vel. Leo aliquam id hendrerit diam nunc semper eu feugiat sed.",
-      image: "/assets/imageOlahBahan.jpg",
+      image: "/assets/olah-limbah.png",
       link: "https://youtu.be/9GYcmMsxl-Y?si=20sGDMiZlaIS1QwW",
       jenis: ["a", "b", "c", "d"],
     },
@@ -26,7 +26,7 @@ const getData = () => {
       deskripsi:
         "Lorem ipsum dolor sit amet consectetur. Malesuada at maecenas imperdiet scelerisque mattis. Mauris etiam auctor blandit massa vitae magnis enim non dui.",
       cara: "Aliquam purus porta ipsum aliquam lacus. A iaculis cursus pretium elementum porttitor a. Elit risus proin in feugiat enim aliquet massa. Porttitor nunc pharetra urna urna. Convallis pulvinar bibendum vitae mattis porttitor. Nec eget potenti nunc vulputate. Convallis enim etiam commodo vel felis ultricies quisque in. Ut ultricies tortor egestas ut senectus neque. Quam duis nunc massa ligula est vitae senectus. Orci vel semper a integer lectus varius urna tortor. Sed at vel at elementum. Id lobortis cum commodo vel. Leo aliquam id hendrerit diam nunc semper eu feugiat sed.",
-      image: "/assets/imageOlahBahan.jpg",
+      image: "/assets/olah-limbah.png",
       link: "https://youtu.be/9GYcmMsxl-Y?si=20sGDMiZlaIS1QwW",
       jenis: ["a", "b", "c", "d"],
     },
@@ -36,7 +36,7 @@ const getData = () => {
       deskripsi:
         "Lorem ipsum dolor sit amet consectetur. Malesuada at maecenas imperdiet scelerisque mattis. Mauris etiam auctor blandit massa vitae magnis enim non dui.",
       cara: "Aliquam purus porta ipsum aliquam lacus. A iaculis cursus pretium elementum porttitor a. Elit risus proin in feugiat enim aliquet massa. Porttitor nunc pharetra urna urna. Convallis pulvinar bibendum vitae mattis porttitor. Nec eget potenti nunc vulputate. Convallis enim etiam commodo vel felis ultricies quisque in. Ut ultricies tortor egestas ut senectus neque. Quam duis nunc massa ligula est vitae senectus. Orci vel semper a integer lectus varius urna tortor. Sed at vel at elementum. Id lobortis cum commodo vel. Leo aliquam id hendrerit diam nunc semper eu feugiat sed.",
-      image: "/assets/imageOlahBahan.jpg",
+      image: "/assets/olah-limbah.png",
       link: "https://youtu.be/9GYcmMsxl-Y?si=20sGDMiZlaIS1QwW",
       jenis: ["a", "b", "c", "d"],
     },
@@ -46,7 +46,7 @@ const getData = () => {
       deskripsi:
         "Lorem ipsum dolor sit amet consectetur. Malesuada at maecenas imperdiet scelerisque mattis. Mauris etiam auctor blandit massa vitae magnis enim non dui.",
       cara: "Aliquam purus porta ipsum aliquam lacus. A iaculis cursus pretium elementum porttitor a. Elit risus proin in feugiat enim aliquet massa. Porttitor nunc pharetra urna urna. Convallis pulvinar bibendum vitae mattis porttitor. Nec eget potenti nunc vulputate. Convallis enim etiam commodo vel felis ultricies quisque in. Ut ultricies tortor egestas ut senectus neque. Quam duis nunc massa ligula est vitae senectus. Orci vel semper a integer lectus varius urna tortor. Sed at vel at elementum. Id lobortis cum commodo vel. Leo aliquam id hendrerit diam nunc semper eu feugiat sed.",
-      image: "/assets/imageOlahBahan.jpg",
+      image: "/assets/olah-limbah.png",
       link: "https://youtu.be/9GYcmMsxl-Y?si=20sGDMiZlaIS1QwW",
       jenis: ["a", "b", "c", "d"],
     },
@@ -56,7 +56,7 @@ const getData = () => {
       deskripsi:
         "Lorem ipsum dolor sit amet consectetur. Malesuada at maecenas imperdiet scelerisque mattis. Mauris etiam auctor blandit massa vitae magnis enim non dui.",
       cara: "Aliquam purus porta ipsum aliquam lacus. A iaculis cursus pretium elementum porttitor a. Elit risus proin in feugiat enim aliquet massa. Porttitor nunc pharetra urna urna. Convallis pulvinar bibendum vitae mattis porttitor. Nec eget potenti nunc vulputate. Convallis enim etiam commodo vel felis ultricies quisque in. Ut ultricies tortor egestas ut senectus neque. Quam duis nunc massa ligula est vitae senectus. Orci vel semper a integer lectus varius urna tortor. Sed at vel at elementum. Id lobortis cum commodo vel. Leo aliquam id hendrerit diam nunc semper eu feugiat sed.",
-      image: "/assets/imageOlahBahan.jpg",
+      image: "/assets/olah-limbah.png",
       link: "https://youtu.be/9GYcmMsxl-Y?si=20sGDMiZlaIS1QwW",
       jenis: ["a", "b", "c", "d"],
     },

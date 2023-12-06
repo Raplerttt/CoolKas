@@ -1,20 +1,20 @@
-import React, { useEffect, useRef } from 'react';
-import $ from 'jquery';
-import 'bootstrap-datepicker';
-import 'bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css';
+import React, { useEffect, useRef } from "react";
+import $ from "jquery";
+// import "bootstrap-datepicker";
+// import "bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css";
 const Belanja = () => {
   const tanggalAwalRef = useRef(null);
   const tanggalAkhirRef = useRef(null);
   useEffect(() => {
     $(tanggalAwalRef.current).datepicker({
-      format: 'yyyy-mm-dd',
+      format: "yyyy-mm-dd",
       autoclose: true,
-      todayHighlight: true
+      todayHighlight: true,
     });
     $(tanggalAkhirRef.current).datepicker({
-      format: 'yyyy-mm-dd',
+      format: "yyyy-mm-dd",
       autoclose: true,
-      todayHighlight: true
+      todayHighlight: true,
     });
   }, []);
   return (
@@ -47,7 +47,7 @@ const Belanja = () => {
             className="input-form datepicker"
             type="text"
             placeholder="Tanggal pembelian"
-            name="tanggal-awal"
+            name="tanggal-pembelian"
             required
           />
           <input
@@ -55,25 +55,23 @@ const Belanja = () => {
             className="input-form datepicker"
             type="text"
             placeholder="Tanggal kadaluarsa"
-            name="tanggal-akhir"
+            name="tanggal-kadaluarsa"
             required
           />
           <div className="select">
-          <input
-            className="input-left"
-            type="number"
-            placeholder="jumlah"
-            name="jumlah"
-            required
-          />
-          <select className="input-right" name="Jumlah Makanan">
-            <option value="">
-              Pcs
-            </option>
-            <option value="">Kg</option>
-            <option value="">Buah</option>
-            <option value="">Liter</option>
-          </select>
+            <input
+              className="input-left"
+              type="number"
+              placeholder="jumlah"
+              name="jumlah-bahan"
+              required
+            />
+            <select className="input-right" name="type-makanan">
+              <option value="">Pcs</option>
+              <option value="">Kg</option>
+              <option value="">Buah</option>
+              <option value="">Liter</option>
+            </select>
           </div>
           <input
             className="input-form"

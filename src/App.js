@@ -5,6 +5,7 @@ import DetailOlahBahanPage from "./pages/detailOlahBahanPage";
 import ModulOlahBahanPage from "./pages/olahBahanPage";
 import AktitasPage from "./pages/aktivitasPage";
 import BelanjaPages from "./pages/belanjaPage";
+import DashboardPage from "./pages/dashboardPage";
 import "./style/page.css";
 import "./style/navbar.css";
 import "./style/belanja.css";
@@ -15,7 +16,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<ModulOlahBahanPage />}></Route>
+        <Route path="/" element={<DashboardPage />}></Route>
         <Route path="/modulOlahBahan" element={<ModulOlahBahanPage />}></Route>
         <Route
           path="/modulOlahBahan/:id"

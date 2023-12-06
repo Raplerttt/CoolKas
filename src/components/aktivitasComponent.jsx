@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import $ from "jquery";
+// import "bootstrap-datepicker";
+// import "bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css";
 
 const Aktivitas = () => {
+  const tanggalAktivitas = useRef(null);
+  useEffect(() => {
+    $(tanggalAktivitas.current).datepicker({
+      format: "yyyy-mm-dd",
+      autoclose: true,
+      todayHighlight: true,
+    });
+  }, []);
   return (
     <div>
       <div className="kotak_login">
@@ -27,10 +38,11 @@ const Aktivitas = () => {
           />
 
           <input
-            className="input-form"
-            type="date"
-            placeholder="Tanggal digunakan"
-            name="tanggal"
+            ref={tanggalAktivitas}
+            className="input-form datepicker"
+            type="text"
+            placeholder="Tanggal Aktivitas"
+            name="tanggal-Aktivitas"
             required
           />
           <input
