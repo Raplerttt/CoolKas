@@ -1,0 +1,155 @@
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: #618985;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+    padding: 0;
+}
+
+.footer p {
+    margin: 0;
+    color: white;
+    font-size: 16px;
+}
+
+.blue-box {
+    background-color: #618985;
+    text-align: left;
+    padding: 40px;
+    position: relative;
+}
+
+.blue-box .blue-box-content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+   
+}
+
+.blue-box img {
+    width: 150px;
+    height: 120px;
+    border-radius: 8px;
+    margin-left: 40px;
+    vertical-align: middle;
+}
+
+.blue-box .text {
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 12%;
+    flex: 1;
+ 
+}
+.blue-box::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    /* Ketebalan garis merah */
+    background-color: white;
+    /* Warna merah */
+}
+
+.blue-box p {
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 180%;
+    /* 57.6px */
+}
+
+.blue-box ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.blue-box ul li {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.get-simplicity {
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.blue-box ul li {
+    font-size: 16px;
+    margin-top: 5px;
+    color: rgba(255, 255, 255, 0.40);
+}
+
+.blue-box-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.text,
+.additional-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.additional-text {
+    margin-top: 10px;
+    margin-right: 45%; 
+}
+
+.text,
+.additional-text lane {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.lane {
+    margin-top: -120px;
+    margin-left: 60%; 
+  margin-right: 10%;
+}
+
+/* sosmed */
+
+
+.sosmed-box {
+    margin-left: 75%;
+    text-align: center;
+    margin-top: -13%; 
+}
+
+.sosmed-box p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.sosmed-icons {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center; 
+}
+
+.sosmed-icons li {
+    margin: 0 10px; 
+}
+
+.sosmed-icons img {
+    width: 30px;
+    height: 30px;
+    margin-left: 20px; 
+}
