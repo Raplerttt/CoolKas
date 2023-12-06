@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Account = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    username: '',
-    password: '',
-    occupation: '',
+    fullName: "",
+    email: "",
+    username: "",
+    password: "",
+    occupation: "",
   });
 
   const handleChange = (e) => {
@@ -18,19 +20,21 @@ const Account = () => {
   };
 
   const handleEdit = () => {
+    navigate("/editAkun");
     // Implement edit functionality
-    console.log('Edit Akun');
+    console.log("Edit Akun");
   };
 
   const handleSubmit = () => {
     // Implement submit functionality
-    console.log('Submit Akun', formData);
+    console.log("Submit Akun", formData);
   };
 
   return (
     <div className="kotak_form">
       <div className="wrap">
         <img
+          className="akun-img"
           src="https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png"
           alt=""
         />
@@ -81,12 +85,12 @@ const Account = () => {
           onChange={handleChange}
           required
         />
-        <div className="btn">
+        <div className="btn akun-btn">
           <button className="btn-submit" type="button" onClick={handleEdit}>
             Edit Akun
           </button>
           <button className="btn-submit" type="button" onClick={handleSubmit}>
-            Submit
+            Logout
           </button>
         </div>
       </form>

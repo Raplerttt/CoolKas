@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import $ from "jquery";
-// import "bootstrap-datepicker";
-// import "bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css";
+import "bootstrap-datepicker";
+import "bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css";
 const Belanja = () => {
   const tanggalAwalRef = useRef(null);
   const tanggalAkhirRef = useRef(null);

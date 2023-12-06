@@ -9,7 +9,7 @@ function OlahBahanItem({ image, judul, deskripsi, id }) {
           <img src={image} className="card-img-top" alt="Fan Art" />
           <div className="card-body">
             <Link
-              to={`/modulOlahBahan/${id}`}
+              to={`${id}`}
               className="card-title stretched-link  text-decoration-none"
             >
               <h4 className="mb-3">{judul}</h4>

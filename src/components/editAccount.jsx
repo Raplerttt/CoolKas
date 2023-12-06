@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const EditAccount = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    username: '',
-    password: '',
-    confirmPassword: '',
-    occupation: '',
+    fullName: "",
+    email: "",
+    username: "",
+    password: "",
+    confirmPassword: "",
+    occupation: "",
   });
 
-  const [passwordStrength, setPasswordStrength] = useState('');
+  const [passwordStrength, setPasswordStrength] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,24 +26,25 @@ const EditAccount = () => {
   const evaluatePasswordStrength = (password) => {
     // Implementasi evaluasi kekuatan password
     // Contoh sederhana: Anggap password yang lebih dari 8 karakter sebagai "Strong"
-    const strength = password.length > 8 ? 'Strong' : 'Weak';
+    const strength = password.length > 8 ? "Strong" : "Weak";
     setPasswordStrength(strength);
   };
 
   const handleEdit = () => {
     // Implementasi fungsi edit
-    console.log('Edit Akun');
+    console.log("Edit Akun");
   };
 
   const handleSubmit = () => {
     // Implementasi fungsi submit
-    console.log('Submit Akun', formData);
+    console.log("Submit Akun", formData);
   };
 
   return (
     <div className="kotak_form">
       <div className="wrap">
         <img
+          className="akun-img"
           src="https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png"
           alt=""
         />
@@ -105,12 +106,12 @@ const EditAccount = () => {
           onChange={handleChange}
           required
         />
-        <div className="btn">
+        <div className="btn akun-btn">
           <button className="btn-submit" type="button" onClick={handleEdit}>
-            Edit Akun
+            Batal
           </button>
           <button className="btn-submit" type="button" onClick={handleSubmit}>
-            Submit
+            Simpan
           </button>
         </div>
       </form>

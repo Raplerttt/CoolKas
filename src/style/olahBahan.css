@@ -27,6 +27,10 @@
     rgba(0, 0, 0, 0.3) 0px 2px 2px -3px;
 }
 
+.vidio-tutorial {
+  margin: auto;
+}
+
 @media only screen and (max-width: 800px) {
   .cara-olah-bahan {
     margin-right: 0;
