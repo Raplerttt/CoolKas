@@ -1,0 +1,54 @@
+.kotak_form {
+    width: 550px;
+    border-radius: 0 0 25px 25px;
+    background: #618985;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin: 30px auto;
+    text-align: center;
+}
+
+.kotak_form .wrap {
+  height: 180px;
+  border-radius: 0 0 250px 250px;
+  background: #C19875;
+}
+
+.form {
+  margin-top: 10px;
+}
+
+.input-form{
+  box-sizing: border-box;
+  width: 70%;
+  padding: 10px;
+  font-size: 11pt;
+  margin-bottom: 20px;
+}
+
+img {
+  width: 100px;
+  border-radius: 50%;
+  margin-top: 40px;
+}
+
+.btn {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.btn-submit {
+  color: white;
+  font-size: 11pt;
+  width: 30%;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: #c19875;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
