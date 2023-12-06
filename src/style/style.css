@@ -1,0 +1,42 @@
+.color-soft-dark-brown{
+    color: #494c3d;
+}
+
+.btn-soft-brown{
+    background-color: #c19875;
+    box-shadow: 0 1px 5px black;
+}
+
+.btn-soft-brown:hover{
+    background-color: #bf8857;
+}
+
+.btn-soft-dark-brown{
+    background-color: #937c68;
+    box-shadow: 0 1px 5px black;
+}
+
+.btn-soft-dark-brown:hover{
+    background-color: #7a6350;
+}
+
+.color-soft-blue{
+    background-color: #618985;
+}
+
+.shadow-small{
+    text-shadow: 0 1px 1px black ;
+}
+
+.card {
+    flex-direction: row;
+}
+
+.card img {
+    width: 10vw;
+}
+
+.card-kadaluarsa{
+    background-color: red;
+    color: white;
+}
