@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import "../style/akun.css";
 const Account = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({

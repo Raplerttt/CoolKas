@@ -1,10 +1,10 @@
-import React from 'react';
-
+import React from "react";
+import "../style/footer.css";
 const Footer = () => {
   return (
     <div className="blue-box">
       <div className="blue-box-content">
-        <img src="./images/logo2.png" alt="Coolkas Image" />
+        <img src="./assets/logo2.png" alt="Coolkas Image" />
         <div className="text">
           <p>Coolkas</p>
           <ul>
@@ -32,9 +32,21 @@ const Footer = () => {
         <div className="sosmed-box">
           <p>Sosmed</p>
           <ul className="sosmed-icons">
-            <li><a href="#" target="_blank" rel="noopener noreferrer"><img src="./images/facebook.png" alt="Facebook" /></a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer"><img src="./images/instagram.png" alt="Instagram" /></a></li>
-            <li><a href="#" target="_blank" rel="noopener noreferrer"><img src="./images/twitter (1).png" alt="Twitter" /></a></li>
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/facebook.png" alt="Facebook" />
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/instagram.png" alt="Instagram" />
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/twitter.png" alt="Twitter" />
+              </a>
+            </li>
           </ul>
         </div>
       </div>

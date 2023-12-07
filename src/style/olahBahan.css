@@ -31,6 +31,21 @@
   margin: auto;
 }
 
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* Ratio 16:9 untuk membuat area video responsif */
+  overflow: hidden;
+  max-width: 100%; /* Membuat video mengisi lebar maksimum container */
+  margin: 20px auto; /* Atur margin sesuai kebutuhan Anda */
+}
+
+/* Style untuk membuat video responsif pada layar handphone dan tablet */
+@media (max-width: 767px) {
+  .video-container {
+    padding-bottom: 75%; /* Ganti rasio sesuai kebutuhan untuk layar tablet/handphone */
+  }
+}
+
 @media only screen and (max-width: 800px) {
   .cara-olah-bahan {
     margin-right: 0;

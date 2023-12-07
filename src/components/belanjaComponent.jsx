@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import $ from "jquery";
+import "../style/belanja.css";
 import "bootstrap-datepicker";
 import "bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css";
 const Belanja = () => {

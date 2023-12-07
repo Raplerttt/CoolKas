@@ -58,4 +58,10 @@ about coolkas brief
   border: none;
   margin: 0rem auto 4rem;
   width: 80px;
+  align-items: center;
+}
+
+.about #seeAbout .btn:hover {
+  background: #80654e;
+  color: white;
 }

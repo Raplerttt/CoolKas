@@ -106,3 +106,7 @@ olah limbah
   margin: 2rem auto 0rem;
   width: 80px;
 }
+.olah-limbah #seeOlah .btn:hover {
+  background: #80654e;
+  color: white;
+}

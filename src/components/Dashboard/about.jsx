@@ -3,16 +3,16 @@ import "../../style/about.css";
 
 function About() {
   return (
-    <div class="about">
-      <div class="about-brief">
-        <div class="column">
+    <div className="about d-flex align-items-center">
+      <div className="about-brief">
+        <div className="column">
           <img
-            src="./assets/logo2.png"
-            class="img-fluid mx-auto d-block"
+            src="./assets/coolkas.png"
+            className="img-fluid mx-auto d-block"
             alt="Logo Coolkas"
           />
         </div>
-        <div class="column2">
+        <div className="column2">
           <h1>Tentang CoolKas</h1>
           <p>
             Aplikasi web inovatif yang dirancang untuk memberikan solusi yang
@@ -21,8 +21,8 @@ function About() {
           </p>
         </div>
       </div>
-      <div id="seeAbout" class="text-center">
-        <a class="btn btn-primary btn-lg" href="#" role="button">
+      <div id="seeAbout" className="text-center mx-auto">
+        <a className="btn btn-primary btn-lg" href="#" role="button">
           Lihat
         </a>
       </div>

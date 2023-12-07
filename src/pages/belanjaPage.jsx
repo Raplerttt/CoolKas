@@ -1,6 +1,6 @@
 import Belanja from "../components/belanjaComponent";
 import Navbar from "../components/navbarComponent";
-
+import { Footer, AppFooter } from "../components/footer";
 function BelanjaPage() {
   return (
     <div>
@@ -9,6 +9,8 @@ function BelanjaPage() {
         <h1 className="text-center ">Belanja Bahan Baru</h1>
         <Belanja />
       </div>
+      <Footer />
+      <AppFooter />
     </div>
   );
 }

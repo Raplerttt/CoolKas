@@ -1,6 +1,6 @@
 import OlahBahanItem from "./olahBahanItemComponent";
 import { getData } from "../utils/data";
-
+import "../style/olahBahan.css";
 function OlahBahanList() {
   const moduls = getData();
 

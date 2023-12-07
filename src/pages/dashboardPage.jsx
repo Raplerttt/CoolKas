@@ -4,6 +4,7 @@ import Feature from "../components/Dashboard/feature";
 import Recipe from "../components/Dashboard/recipe";
 import OlahLimbah from "../components/Dashboard/olahLimbah";
 import About from "../components/Dashboard/about";
+import { Footer, AppFooter } from "../components/footer";
 
 function DashboardPage() {
   return (
@@ -25,6 +26,8 @@ function DashboardPage() {
           <About />
         </section>
       </main>
+      <Footer />
+      <AppFooter />
     </div>
   );
 }

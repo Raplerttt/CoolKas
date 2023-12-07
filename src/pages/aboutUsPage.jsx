@@ -1,14 +1,14 @@
+import AboutUs from "../components/aboutUs";
 import Navbar from "../components/navbarComponent";
-import EditAccount from "../components/editAccount";
 import { Footer, AppFooter } from "../components/footer";
 
-function EditAccountPage() {
+function AboutUsPage() {
   return (
     <div>
       <Navbar />
       <div className="container">
-        <h1 className="text-center ">Edit Akun</h1>
-        <EditAccount />
+        <h1 className="text-center ">Tentang Kami</h1>
+        <AboutUs />
       </div>
       <Footer />
       <AppFooter />
@@ -16,4 +16,4 @@ function EditAccountPage() {
   );
 }
 
-export default EditAccountPage;
+export default AboutUsPage;

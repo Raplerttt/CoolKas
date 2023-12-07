@@ -60,6 +60,11 @@ RESEP
   width: 170px;
 }
 
+.recipe #seeCategory .btn:hover {
+  background: #80654e;
+  color: white;
+}
+
 /* recipe carousel */
 
 .carousel-inner {

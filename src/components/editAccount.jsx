@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
+import "../style/akun.css";
 const EditAccount = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -30,7 +32,8 @@ const EditAccount = () => {
     setPasswordStrength(strength);
   };
 
-  const handleEdit = () => {
+  const handleBatal = () => {
+    navigate("/akun");
     // Implementasi fungsi edit
     console.log("Edit Akun");
   };
@@ -107,7 +110,7 @@ const EditAccount = () => {
           required
         />
         <div className="btn akun-btn">
-          <button className="btn-submit" type="button" onClick={handleEdit}>
+          <button className="btn-submit" type="button" onClick={handleBatal}>
             Batal
           </button>
           <button className="btn-submit" type="button" onClick={handleSubmit}>

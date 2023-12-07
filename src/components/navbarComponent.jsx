@@ -1,3 +1,5 @@
+import "../style/navbar.css";
+
 function Navbar() {
   return (
     <header className="app-bar">
@@ -30,7 +32,7 @@ function Navbar() {
             </a>
             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
-                <a className="dropdown-item" href="#">
+                <a className="dropdown-item" href="/modulResep">
                   Modul Resep
                 </a>
               </li>
@@ -45,7 +47,7 @@ function Navbar() {
             <a href="/contactUs">Contact Us</a>
           </li>
           <li className="main-nav">
-            <a href="/contactUs">About Us</a>
+            <a href="/aboutUs">About Us</a>
           </li>
           <li className="nav-item dropdown">
             <a

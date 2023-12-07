@@ -51,8 +51,13 @@ function DetailOlahBahan({ id }) {
       <div className="mt-4 text-center">
         <div className="row col-md-12 d-flex justify-content-center align-items-center">
           <h3>Video Tutorial:</h3>
-          <div className="embed-responsive embed-responsive-16by9 mt-3">
-            <ReactPlayer url={data.link} style={{ margin: "auto" }} />
+          <div className="video-container">
+            <ReactPlayer
+              url={data.link}
+              controls // Menampilkan tombol play dan kontrol video
+              width="70%" // Mengisi lebar video 100% dari container
+              style={{ margin: "auto" }}
+            />
           </div>
         </div>
       </div>

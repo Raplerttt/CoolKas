@@ -1,3 +1,4 @@
+import "../style/contactUs.css";
 function ContactUs() {
   return (
     <div>
@@ -42,7 +43,7 @@ function ContactUs() {
             ></textarea>
           </div>
           <div className=" text-center">
-            <button className="btn button-submit">Kirim</button>
+            <button className="btn button-submit mx-auto">Kirim</button>
           </div>
         </div>
 
