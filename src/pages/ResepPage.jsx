@@ -48,9 +48,9 @@ function ModulResepPage() {
         </table>
 
         {/* <!-- Card --> */}
-        <div id="card" className="row row-cols-1 row-cols-md-3 g-4">
+        <div id="card" className="row row-cols-1 row-cols-md-3 g-4 ">
           <div className="col">
-            <div className="card">
+            <div className="card ">
               <img
                 src="../assets/sushi-api.jpg"
                 className="card-img-top"

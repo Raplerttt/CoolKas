@@ -4,6 +4,8 @@ import ContactUsPage from "./pages/contactUsPage";
 import AboutUsPage from "./pages/aboutUsPage";
 import DetailOlahBahanPage from "./pages/detailOlahBahanPage";
 import ModulOlahBahanPage from "./pages/olahBahanPage";
+import DetailPenyimpananPage from "./pages/detailPenyimpananPage";
+import PenyimpananPage from "./pages/PenyimpananPage";
 import DetailResepPage from "./pages/detailResepPage";
 import ModulResepPage from "./pages/ResepPage";
 import AktitasPage from "./pages/aktivitasPage";
@@ -18,6 +20,11 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<DashboardPage />}></Route>
+        <Route path="/penyimpanan" element={<PenyimpananPage />}></Route>
+        <Route
+          path="/detailPenyimpanan/:id"
+          element={<DetailPenyimpananPage />}
+        ></Route>
         <Route path="/modulOlahBahan" element={<ModulOlahBahanPage />}></Route>
         <Route
           path="/modulOlahBahan/:id"

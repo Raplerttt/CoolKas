@@ -1,4 +1,4 @@
-.line-clamp-3 {
+.deskripsi-card-olahbahan {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -33,7 +33,6 @@
 
 .video-container {
   position: relative;
-  padding-bottom: 56.25%; /* Ratio 16:9 untuk membuat area video responsif */
   overflow: hidden;
   max-width: 100%; /* Membuat video mengisi lebar maksimum container */
   margin: 20px auto; /* Atur margin sesuai kebutuhan Anda */

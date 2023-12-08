@@ -30,7 +30,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="sosmed-box">
-          <p>Sosmed</p>
+          <p>Media Sosial Kami</p>
           <ul className="sosmed-icons">
             <li>
               <a href="#" target="_blank" rel="noopener noreferrer">

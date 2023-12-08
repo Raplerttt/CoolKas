@@ -14,7 +14,9 @@ function OlahBahanItem({ image, judul, deskripsi, id }) {
             >
               <h4 className="mb-3">{judul}</h4>
             </Link>
-            <p className="card-text line-clamp-3">{deskripsi}</p>
+            <p className="card-text line-clamp-3 deskripsi-card-olahbahan">
+              {deskripsi}
+            </p>
           </div>
         </div>
       </div>

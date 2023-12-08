@@ -17,7 +17,7 @@ function Navbar() {
             <a href="/">Home</a>
           </li>
           <li className="main-nav">
-            <a href="#/">Penyimpanan </a>
+            <a href="/penyimpanan">Penyimpanan </a>
           </li>
           <li className="nav-item dropdown">
             <a

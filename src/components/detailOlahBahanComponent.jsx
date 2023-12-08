@@ -1,7 +1,6 @@
 import React from "react";
 import { getData } from "../utils/data";
 import ReactPlayer from "react-player/youtube";
-import { Link } from "react-router-dom";
 
 function DetailOlahBahan({ id }) {
   const moduls = getData();

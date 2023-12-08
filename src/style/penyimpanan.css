@@ -1,0 +1,45 @@
+.penyimpanan-judul {
+  color: #494c3d;
+}
+
+.btn-kelola {
+  background-color: #c19875;
+  box-shadow: 0 1px 5px black;
+}
+
+.text-small-penyimpanan {
+  font-size: 12px;
+}
+.btn-kelola:hover {
+  background-color: #bf8857;
+}
+
+.btn-hapuss {
+  background-color: #937c68;
+  box-shadow: 0 1px 5px black;
+}
+
+.btn-hapuss:hover {
+  background-color: #7a6350;
+}
+
+.color-soft-blue {
+  background-color: #618985;
+}
+
+.penyimpanan-shadow-small {
+  text-shadow: 0 1px 1px black;
+}
+
+.penyimpanan-card {
+  flex-direction: row;
+}
+
+.penyimpanan-card img {
+  width: 10vw;
+}
+
+.card-kadaluarsa {
+  background-color: #b10000;
+  color: white;
+}
