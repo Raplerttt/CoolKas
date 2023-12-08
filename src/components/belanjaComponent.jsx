@@ -61,7 +61,7 @@ const Belanja = () => {
           />
           <div className="select">
             <input
-              className="input-left"
+              className="input-left select-jumlah"
               type="number"
               placeholder="jumlah"
               name="jumlah-bahan"
@@ -81,6 +81,7 @@ const Belanja = () => {
             name="lokasi"
             required
           />
+          <br />
           <button type="submit" className="btn-submit">
             Tambahkan
           </button>

@@ -13,6 +13,9 @@ import BelanjaPages from "./pages/belanjaPage";
 import DashboardPage from "./pages/dashboardPage";
 import AccountPage from "./pages/akunPage";
 import EditAccountPage from "./pages/editAkunPage";
+import RegisterPage from "./pages/registerPage";
+import LoginPage from "./pages/loginPage";
+import ForgetPassPage from "./pages/forgetPassPage";
 import "./style/page.css";
 
 function App() {
@@ -20,6 +23,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<DashboardPage />}></Route>
+        <Route path="/register" element={<RegisterPage />}></Route>
+        <Route path="/forgetPass" element={<ForgetPassPage />}></Route>
+        <Route path="/login" element={<LoginPage />}></Route>
         <Route path="/penyimpanan" element={<PenyimpananPage />}></Route>
         <Route
           path="/detailPenyimpanan/:id"
@@ -36,7 +42,7 @@ function App() {
         <Route path="/contactUs" element={<ContactUsPage />}></Route>
         <Route path="/akun" element={<AccountPage />}></Route>
         <Route path="/editAkun" element={<EditAccountPage />}></Route>
-        <Route path="/BelanjaPages" element={<BelanjaPages />}></Route>
+        <Route path="/belanja" element={<BelanjaPages />}></Route>
         <Route path="/aktivitas" element={<AktitasPage />}></Route>
       </Routes>
     </Router>

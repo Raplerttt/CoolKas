@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import $ from "jquery";
 import "bootstrap-datepicker";
 import "bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css";
-
+import "../style/belanja.css";
 const Aktivitas = () => {
   const tanggalAktivitas = useRef(null);
   useEffect(() => {
@@ -60,6 +60,7 @@ const Aktivitas = () => {
             name="lokasi"
             required
           />
+          <br />
           <button type="submit" className="btn-submit">
             Kelola
           </button>

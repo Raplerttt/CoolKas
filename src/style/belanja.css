@@ -5,7 +5,7 @@
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   /*meletakkan form ke tengah*/
   margin: 10px auto;
-  padding: 30px 20px;
+  padding: 50px 0px;
   text-align: center;
 }
 
@@ -23,7 +23,7 @@ h1 {
   text-transform: capitalize;
 }
 
-.input-form{
+.input-form {
   box-sizing: border-box;
   width: 100%;
   padding: 10px;
@@ -92,13 +92,14 @@ h1 {
   cursor: pointer;
 }
 
-.btn-belanja .btn-masak .btn-submit:hover {
+.btn-submit:hover {
   background-color: #80654e;
 }
 
 .select {
+  margin: 0 82px;
   display: flex;
-  gap : 10px
+  gap: 10px;
 }
 
 .datepicker {

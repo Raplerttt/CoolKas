@@ -2,7 +2,7 @@
 import Navbar from "../components/navbarComponent";
 import "../style/reseppage.css";
 import { Footer, AppFooter } from "../components/footer";
-function ModulResepPage() {
+function RegisterPage() {
   return (
     <div>
       <Navbar />
@@ -237,4 +237,4 @@ function ModulResepPage() {
   );
 }
 
-export default ModulResepPage;
+export default RegisterPage;
