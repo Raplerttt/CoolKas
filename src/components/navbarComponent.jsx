@@ -1,18 +1,36 @@
+import React, { useState, useRef, useEffect } from 'react';
 import "../style/navbar.css";
 
 function Navbar() {
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  // to close hamburger outside the icon
+  const ref = useRef();
+  useEffect(() => {
+    const handler = (event) => {
+      if (
+        navbarOpen &&
+        ref.current &&
+        !ref.current.contains(event.target)
+      ) {
+        setNavbarOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => {
+      document.removeEventListener('mousedown', handler);
+    };
+  }, [navbarOpen]);
+
   return (
-    <header className="app-bar">
+    <header ref={ref} className="app-bar">
       <div className="app-bar__brand">
         <a href="index.html">
           <img src="/assets/logo.png" className="logo" alt="Logo" />
         </a>
       </div>
-      <div className="app-bar__menu">
-        <button id="hamburgerButton">☰</button>
-      </div>
-      <nav id="navigationDrawer" className="app-bar__navigation">
-        <ul>
+      <nav>
+        <button id="hamburgerButton" className="toggle" onClick={() => setNavbarOpen((prev) => !prev)}>{navbarOpen ? '☰' : '☰'}</button>
+        <ul className={`menu-nav${navbarOpen ? ' show-menu' : ''}`}>
           <li className="main-nav">
             <a href="/">Home</a>
           </li>

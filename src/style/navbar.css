@@ -1,12 +1,12 @@
 /*
     AppBar
-  */
+*/
 
 .app-bar {
   padding: 8px 16px;
   background-color: #618985;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
   gap: 5px;
   position: sticky;
   top: 0;
@@ -14,14 +14,7 @@
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
-.app-bar .app-bar__menu {
-  display: flex;
-  align-items: center;
-  justify-content: end;
-}
-
-/* hamburger button */
-.app-bar .app-bar__menu button {
+.app-bar #hamburgerButton {
   background-color: transparent;
   color: white;
   border: none;
@@ -33,27 +26,58 @@
 .app-bar .app-bar__brand {
   display: flex;
   align-items: center;
+  width: fit-content;
+  padding-left: 3rem;
 }
 
 .app-bar .app-bar__brand img {
   height: 80px;
 }
 
-.app-bar .app-bar__navigation {
-  position: absolute;
-  top: 50px;
-  left: -180px;
-  width: 150px;
-  transition: all 0.3s;
-  padding: 25px 0px 0px;
-  background-color: #618985;
-}
+  button {
+    cursor: pointer;
+    background: transparent;;
+    border: none;
+    font-size: 20px;
+  }
 
-.app-bar .app-bar__navigation.open {
-  right: 0;
-}
+  .app-bar .toggle {
+    display: block;
+    position: fixed;
+    right: 80px;
+    top: 25px;
+    cursor: pointer;
+    background: transparent;;
+    border: none;
+  }
 
-.app-bar .app-bar__navigation ul li a {
+  .menu-nav {
+    position: absolute;
+    background: #618985;
+    top: 95px;
+    left: 0;
+    width: 0;
+    padding-left: 0rem;
+    z-index: 9999;
+    font-size: 18px;
+    box-shadow: 0 10px 15px -3px rgb(46 41 51 / 8%), 0 4px 6px -2px rgb(71 63 79 / 16%);
+    transform: translateX(-100px);
+    transition: transform ease-in-out 0.2s;
+  }
+  .menu-nav.show-menu {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    transform: translateX(0px);
+  }
+
+
+  .main-nav, .nav-item{
+    list-style: none;
+    text-align: center;
+  }
+
+.app-bar .menu-nav li a {
   display: inline-block;
   text-decoration: none;
   color: white;
@@ -63,21 +87,22 @@
   font-weight: 500;
 }
 
-.app-bar .app-bar__navigation .dropdown-menu a {
+.app-bar .menu-nav .dropdown-menu a {
   color: #618985;
   width: 100%;
 }
-.app-bar .app-bar__navigation .dropdown-menu a:hover {
-  background-color: #618985;
-  color: white;
-  cursor: pointer;
-}
 
-.app-bar .app-bar__navigation .main-nav a:hover,
+.app-bar .menu-nav .main-nav a:hover,
 .dropdown .nav-link:hover {
   color: #393e2b;
   border-bottom: 3px solid #393e2b;
   transition: 0.15s ease-in-out;
+}
+
+.app-bar .menu-nav .dropdown-menu a:hover {
+  background-color: #618985;
+  color: white;
+  cursor: pointer;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -90,32 +115,57 @@ RESPONSIVE
 
 */
 
-@media screen and (min-width: 1106px) {
+@media screen and (min-width: 1010px) {
+
   .app-bar {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr 2fr;
     padding: 8px 32px;
   }
 
-  .app-bar .app-bar__menu {
+  #hamburgerButton{
     display: none;
   }
-
-  .app-bar .app-bar__navigation {
+  
+  .menu-nav {
     position: static;
+    margin: 0.8rem 0rem 0rem 10rem;
+    display: flex;
+    flex-direction: row;
+    width: max-content;
+    font-size: 18px;
+    box-shadow: none;
+  }
+
+  .app-bar .menu-nav li a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 5px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 1rem 3.5rem 1rem 0rem;
+  }
+  
+  .app-bar .menu-nav .dropdown-menu a {
+    color: #618985;
     width: 100%;
   }
-
-  .app-bar .app-bar__navigation ul li {
-    display: inline-block;
+  .app-bar .menu-nav .dropdown-menu li:hover {
+    background-color: #618985;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .app-bar .menu-nav .main-nav a:hover,
+  .dropdown .nav-link:hover {
+    color: #393e2b;
+    border-bottom: 3px solid #393e2b;
+    transition: 0.15s ease-in-out;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
   }
 
-  .app-bar .app-bar__navigation ul li a {
-    display: inline-block;
-    width: 120px;
-    text-align: center;
-    margin: 0;
-  }
-}
-
-@media screen and (min-width: 1200px) {
 }
