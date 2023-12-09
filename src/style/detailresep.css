@@ -6,7 +6,7 @@ body {
 .page-title {
   text-align: center;
   font-size: 50px;
-  font-weight: bold;
+  font-weight: 700;
   color: #414535;
   margin: 2rem 2rem 0rem 2rem;
 }
@@ -14,7 +14,7 @@ body {
 .detail-recipe-brief {
   display: grid;
   grid-template-columns: 45% auto;
-  margin: 2rem auto 3rem;
+  margin: 0rem auto 3rem;
 }
 
 .column {
@@ -34,23 +34,30 @@ body {
   box-shadow: 0px 25px 100px 0px rgba(0, 0, 0, 0.3);
 }
 
-.column2 {
+.column2-detailresep {
   margin: 2rem 8rem 2rem 0rem;
 }
 
-.column2 h1 {
+.column2-detailresep h1 {
   text-align: left;
-  font-size: 45px;
+  font-size: 50px;
   font-weight: 700;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  color: #414535;
+  text-shadow: 0px 3px 3px #000;
+  color: #618985;
   margin-bottom: 0.5rem;
 }
 
-.column2 p {
+.column2-detailresep p {
   text-align: left;
   font-size: 22px;
   color: black;
+  margin-left: 1.25rem;
+}
+
+.column2-detailresep .colon p,
+.column2-detailresep .kategori-resep p,
+.column2-detailresep .asal-resep p {
+  margin-left: 0.5rem;
 }
 
 .categories {
@@ -58,22 +65,21 @@ body {
   width: min-content;
   justify-content: space-evenly;
   margin: 0 1rem 0 0;
-  /* background-color: blueviolet; */
 }
 
 .container-resep {
-  margin: 0 1rem 0 0;
   flex-direction: row;
-  background-color: #c19875;
   border-radius: 5px;
 }
 
-.categories .container p {
-  padding: 0.5rem;
+.categories .container-ctgry p {
+  padding: 0.5rem 1.5rem;
   margin-bottom: 0;
   text-align: left;
-  font-size: 16px;
+  font-size: 18px;
   color: white;
+  border-radius: 15px;
+  background-color: #C19875;
 }
 
 .blue-bg {
@@ -84,7 +90,6 @@ body {
 .blue-bg .list-column {
   display: flex;
   flex-direction: row;
-  /* margin: 2rem auto 3rem; */
 }
 
 .list-detail-resep {
