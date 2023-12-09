@@ -66,6 +66,7 @@ const Aktivitas = () => {
           </button>
         </form>
       </div>
+      <button className="btn-back">{"<"}</button>
     </div>
   );
 };

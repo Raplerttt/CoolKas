@@ -96,6 +96,40 @@ h1 {
   background-color: #80654e;
 }
 
+/* fixed */
+.btn-back {
+  font-size: 1.4rem;
+  font-weight: 500 bold;
+  position: fixed;
+  bottom: 20px;
+  left: 50px;
+  background-color: #618985;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%; 
+}
+
+.btn-back:hover {
+  background-color: #80654e;
+}
+
+/*non-fixed*/
+/* .btn-back {
+  background-color: #618985; 
+  color: #fff; 
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%; 
+  margin-top: 10px;
+}
+
+.btn-back:hover {
+  background-color: #80654e; 
+} */
+
 .select {
   margin: 0 82px;
   display: flex;

@@ -87,6 +87,7 @@ const Belanja = () => {
           </button>
         </form>
       </div>
+      <button className="btn-back">{"<"}</button>
     </div>
   );
 };
