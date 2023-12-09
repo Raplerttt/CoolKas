@@ -11,8 +11,9 @@
 }
 
 .cara-olah-bahan {
+  text-align: justify;
   background: #96bbbb;
-  padding: 30px 10px;
+  padding: 30px 45px;
   margin-right: 40px;
   color: black;
   box-shadow: rgba(50, 50, 93, 0.3) 10px 10px 10px -2px,

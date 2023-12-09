@@ -1,17 +1,52 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React from "react";
-import { getData } from "../utils/data";
+import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player/youtube";
 import Navbar from "../components/navbarComponent";
 import { useParams } from "react-router-dom";
 import { Footer, AppFooter } from "../components/footer";
-import '../style/detailresep.css';
+import "../style/detailresep.css";
+import { getDetailMeal } from "../utils/api";
 
 function DetailResepPage() {
   const { id } = useParams();
-  const moduls = getData();
+  const [meal, setMeal] = useState([]);
   const idAsNumber = parseInt(id, 10);
-  const data = moduls.find((modul) => modul.id === idAsNumber);
+  useEffect(() => {
+    // Fungsi untuk mendapatkan data meals
+    const fetchMeals = async () => {
+      try {
+        const result = await getDetailMeal(idAsNumber);
+        setMeal(result);
+      } catch (error) {
+        console.error("Error fetching meals:", error);
+      }
+    };
+
+    // Panggil fungsi fetchMeals saat komponen dimuat pertama kali
+    fetchMeals();
+  }, []);
+
+  // Fungsi untuk mendapatkan bahan dan ukuran yang tidak null dan tidak kosong
+  const getIngredients = (meal) => {
+    const ingredients = [];
+
+    // Filter hanya properti-properti yang dimulai dengan "strIngredient" atau "strMeasure"
+    const ingredientEntries = Object.entries(meal).filter(
+      ([key, value]) =>
+        key.startsWith("strIngredient") && value && value.trim() !== ""
+    );
+
+    // Membuat array hasil dengan menggabungkan bahan dan ukurannya
+    ingredientEntries.forEach(([key, ingredient]) => {
+      const measureKey = `strMeasure${key.substr(13)}`;
+      const measure = meal[measureKey];
+      if (measure && measure.trim() !== "") {
+        ingredients.push(`${measure} ${ingredient}`);
+      }
+    });
+
+    return ingredients;
+  };
 
   return (
     <div>
@@ -20,16 +55,16 @@ function DetailResepPage() {
         <h1 className="text-center page-title">Modul Resep</h1>
       </div>
       <div class="detail-recipe">
-        <div class="detail-recipe-brief">
+        <div class=" detail-recipe-brief">
           <div class="column">
             <img
-              src="../assets/corba-api.jpg"
+              src={meal.strMealThumb}
               class="img-fluid mx-auto d-block"
-              alt="Food Image"
+              alt={meal.strMeal}
             />
           </div>
           <div class="column2-detailresep">
-            <h1>Corba</h1>
+            <h1>{meal.strMeal}</h1>
             <table>
               <tr>
                 <td>
@@ -39,7 +74,7 @@ function DetailResepPage() {
                   <p>:</p>
                 </td>
                 <td class="kategori-resep">
-                  <p>Side</p>
+                  <p>{meal.strCategory}</p>
                 </td>
               </tr>
               <tr>
@@ -50,17 +85,17 @@ function DetailResepPage() {
                   <p>:</p>
                 </td>
                 <td class="asal-resep">
-                  <p>Turkish</p>
+                  <p>{meal.strArea}</p>
                 </td>
               </tr>
             </table>
             <div class="categories">
-              <div class="container-ctgry">
-                <p class="category">Side</p>
-              </div>
-              <div class="container-ctgry">
-                <p class="category">Food</p>
-              </div>
+              {meal.strTags &&
+                meal.strTags.split(",").map((tag, index) => (
+                  <div class="container-ctgry" key={index}>
+                    <p class="category">{tag.trim()}</p>
+                  </div>
+                ))}
             </div>
           </div>
         </div>
@@ -69,21 +104,32 @@ function DetailResepPage() {
       {/* resep & bahan */}
       <div className="container">
         <div className="row">
-          <div className="col-md-8  mx-auto mb-3 mt-5">
+          <div className="col-md-8 mx-auto mb-3 mt-5">
             <div className="card rounded-3 cara-olah-bahan">
               <div className="card-body">
                 <h3 className="card-title text-center">Cara Membuat:</h3>
-                <p className="card-text">{data.cara}</p>
+                {meal.strInstructions && (
+                  <ol className="list-group list-group-flush">
+                    {meal.strInstructions
+                      .split(". ")
+                      .join(".\r\n\r\n")
+                      .split("\r\n\r\n")
+                      .map((step, index) => (
+                        <li key={index}> {step}</li>
+                      ))}
+                  </ol>
+                )}
               </div>
             </div>
           </div>
+
           <div className="col-md-4 mx-auto mt-5">
             <div className="card rounded-3 jenis-olah-bahan">
               <div className="card-body">
                 <h3 className="card-title text-center">Bahan-bahan:</h3>
                 <ul className="card-text">
-                  {data.jenis.map((jenis, index) => (
-                    <li key={index}>{jenis}</li>
+                  {getIngredients(meal).map((ingredient, index) => (
+                    <li key={index}>{ingredient}</li>
                   ))}
                 </ul>
               </div>
@@ -92,14 +138,14 @@ function DetailResepPage() {
         </div>
       </div>
 
-      <div className="mt-4 text-center">
+      <div className="mt-4 text-center mb-5">
         <div className="row col-md-12 d-flex justify-content-center align-items-center">
           <h3>Video Tutorial:</h3>
           <div className="video-container">
             <ReactPlayer
-              url={data.link}
+              url={meal.strYoutube}
               controls // Menampilkan tombol play dan kontrol video
-              width="70%" // Mengisi lebar video 100% dari container
+              width="60%"
               style={{ margin: "auto" }}
             />
           </div>
