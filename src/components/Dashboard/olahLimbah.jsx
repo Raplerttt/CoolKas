@@ -111,7 +111,7 @@ function OlahLimbah() {
           </div>
         </div>
         <div id="seeOlah" class="text-center">
-          <a class="btn btn-primary btn-lg" href="#" role="button">
+          <a class="btn btn-primary btn-lg" href="/modulOlahBahan" role="button">
             Lihat
           </a>
         </div>

@@ -22,7 +22,7 @@ function About() {
         </div>
       </div>
       <div id="seeAbout" className="text-center mx-auto">
-        <a className="btn btn-primary btn-lg" href="#" role="button">
+        <a className="btn btn-primary btn-lg" href="/aboutUs" role="button">
           Lihat
         </a>
       </div>
