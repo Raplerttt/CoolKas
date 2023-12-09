@@ -3,15 +3,15 @@ const bodyParser = require('body-parser');
 const apiRoutes = require('./src/Routes/apiRoutes');
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 // Middleware
 app.use(bodyParser.json());
 
-// Use API routes
+// Gunakan rute API
 app.use('/api', apiRoutes);
 
 // Server Listening
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server sedang berjalan di port ${port}`);
 });
