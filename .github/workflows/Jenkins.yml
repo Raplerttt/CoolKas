@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Trigger Jenkins Job
-        uses: CoolKas/github-action@master
+        uses: CoolKas/github-action@v3
         with:
           url: ${{ secrets.JENKINS_URL }}
           user: ${{ secrets.JENKINS_USER }}
