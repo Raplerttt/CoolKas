@@ -5,16 +5,17 @@ const userService = require('./user.service');
 
 const router = express.Router();
 
+// Endpoint untuk register
 router.post('/register', async (req, res) => {
   try {
-    const { nama_lengkap, email, username, password, photo } = req.body;
+    const { nama_lengkap, email, username, password} = req.body;
 
     // Basic input validation
     if (!nama_lengkap || !email || !username || !password) {
       return res.status(400).json({ error: 'All fields are required' });
     }
 
-    const user = { nama_lengkap, email, username, password, photo };
+    const user = { nama_lengkap, email, username, password};
     const result = await userService.registerUser(user);
 
     res.status(201).json({ userId: result.userId, message: 'User registered successfully' });
@@ -24,39 +25,34 @@ router.post('/register', async (req, res) => {
   }
 });
 
-router.get('/all', async (req, res) => {
+// Endpoint untuk login
+router.post('/login', async (req, res) => {
   try {
-    const users = await userService.getAllUsers();
-    res.status(200).json(users);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
-router.delete('/delete/:userId', async (req, res) => {
-  try {
-    const userId = req.params.userId;
+    const { username, password } = req.body;
 
     // Basic input validation
-    if (!userId) {
-      return res.status(400).json({ error: 'User ID is required' });
+    if (!username || !password) {
+      return res.status(400).json({ error: 'Username and password are required' });
     }
 
-    const result = await userService.deleteUser(userId);
+    // Implementasi logika login sesuai kebutuhan Anda
+    // Contoh sederhana: Cek apakah username dan password sesuai di database
+    const user = await userService.getUserByUsername(username);
 
-    if (result.success) {
-      res.status(200).json({ message: 'User deleted successfully' });
-    } else {
-      res.status(404).json({ error: 'User not found' });
+    if (!user || user.password !== password) {
+      return res.status(401).json({ error: 'Invalid username or password' });
     }
+
+    // Berhasil login
+    res.status(200).json({ message: 'Login successful', user });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
-router.put('/update/:userId', async (req, res) => {
+// Endpoint untuk edit (update) pengguna
+router.put('/edit/:userId', async (req, res) => {
   try {
     const userId = req.params.userId;
     const { nama_lengkap, email, username, password, photo } = req.body;
@@ -87,28 +83,5 @@ router.put('/update/:userId', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-
-router.get('/get/:userId', async (req, res) => {
-  try {
-    const userId = req.params.userId;
-
-    // Basic input validation
-    if (!userId) {
-      return res.status(400).json({ error: 'User ID is required' });
-    }
-
-    const user = await userService.getUserById(userId);
-
-    if (user) {
-      res.status(200).json(user);
-    } else {
-      res.status(404).json({ error: 'User not found' });
-    }
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
 
 module.exports = router;
