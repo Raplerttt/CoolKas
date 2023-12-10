@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from "react";
 import "../style/navbar.css";
 
 function Navbar() {
@@ -7,17 +7,13 @@ function Navbar() {
   const ref = useRef();
   useEffect(() => {
     const handler = (event) => {
-      if (
-        navbarOpen &&
-        ref.current &&
-        !ref.current.contains(event.target)
-      ) {
+      if (navbarOpen && ref.current && !ref.current.contains(event.target)) {
         setNavbarOpen(false);
       }
     };
-    document.addEventListener('mousedown', handler);
+    document.addEventListener("mousedown", handler);
     return () => {
-      document.removeEventListener('mousedown', handler);
+      document.removeEventListener("mousedown", handler);
     };
   }, [navbarOpen]);
 
@@ -29,8 +25,14 @@ function Navbar() {
         </a>
       </div>
       <nav>
-        <button id="hamburgerButton" className="toggle" onClick={() => setNavbarOpen((prev) => !prev)}>{navbarOpen ? '☰' : '☰'}</button>
-        <ul className={`menu-nav${navbarOpen ? ' show-menu' : ''}`}>
+        <button
+          id="hamburgerButton"
+          className="toggle"
+          onClick={() => setNavbarOpen((prev) => !prev)}
+        >
+          {navbarOpen ? "☰" : "☰"}
+        </button>
+        <ul className={`menu-nav${navbarOpen ? " show-menu" : ""}`}>
           <li className="main-nav">
             <a href="/">Home</a>
           </li>
@@ -85,7 +87,7 @@ function Navbar() {
                 </a>
               </li>
               <li>
-                <a className="dropdown-item" href="#">
+                <a className="dropdown-item" href="/login">
                   Log Out
                 </a>
               </li>

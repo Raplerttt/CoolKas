@@ -3,12 +3,12 @@ import "../style/login.css";
 const ForgetPassPage = () => {
   return (
     <body>
-      <div class="form-wrapper">
-        <h2 class="form-title">Forgot Password</h2>
+      <div className="form-wrapper">
+        <h2 className="form-title">Forgot Password</h2>
         <form action="#" method="POST">
-          <div class="form-group">
-            <label for="email" class="required">
-              <span class="icon">&#9993;</span>
+          <div className="form-group">
+            <label for="email" className="required">
+              <span className="icon">&#9993;</span>
               Email Address
             </label>
             <input
@@ -19,20 +19,20 @@ const ForgetPassPage = () => {
             />
           </div>
 
-          <button type="submit" class="btn btn-blue mb-4">
+          <button type="submit" className="btn btn-blue mb-4">
             Reset Password
           </button>
-          <div class="form-text">
+          <div className="form-text">
             <p>
               Remember your password?{" "}
-              <a href="login.html" class="form-link">
+              <a href="login.html" className="form-link">
                 Login
               </a>
             </p>
           </div>
-          <div class="home-icon">
+          <div className="home-icon">
             &#127968;
-            <a href="#" class="form-link">
+            <a href="#" className="form-link">
               <h2>Home</h2>
             </a>
           </div>
