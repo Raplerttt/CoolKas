@@ -1,17 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const apiRoutes = require('./src/Routes/apiRoutes');
+const userRoutes = require('./src/User/user.controllers');
 
 const app = express();
-const port = 3001;
+const PORT = 3001;
 
-// Middleware
+// middleware
 app.use(bodyParser.json());
+app.use('/', userRoutes);
 
-// Gunakan rute API
-app.use('/api', apiRoutes);
-
-// Server Listening
-app.listen(port, () => {
-  console.log(`Server sedang berjalan di port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
