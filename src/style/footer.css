@@ -18,7 +18,8 @@
 .blue-box {
   background-color: #618985;
   text-align: left;
-  padding: 15px 40px;
+  padding: 15px 10px;
+  padding-left: 80px;
   position: relative;
   padding-bottom: 2px;
 }
