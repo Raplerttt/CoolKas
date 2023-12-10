@@ -5,104 +5,104 @@ import "../../style/olahLimbah.css";
 
 function OlahLimbah() {
   return (
-    <div class="olah-limbah">
-      <div class="container">
-        <div class="title-container" tabindex="0">
+    <div className="olah-limbah">
+      <div className="container">
+        <div className="title-container" tabindex="0">
           <h1>Modul Olah Limbah</h1>
           <p>Jelajahi dan pelajari cara mengolah limbah makananmu!</p>
         </div>
-        <div class="container-card">
-          <div class="column-card1" tabindex="0">
-            <div class="card">
+        <div className="container-card">
+          <div className="column-card1" tabindex="0">
+            <div className="card">
               <img
                 src="./assets/olah-limbah.png"
-                class="card-img-top"
+                className="card-img-top"
                 alt="Image"
               />
-              <div class="card-body">
-                <h5 class="card-title">
+              <div className="card-body">
+                <h5 className="card-title">
                   Lorem ipsum dolor sit amet consectetur.
                 </h5>
-                <p class="card-text">
+                <p className="card-text">
                   Lorem ipsum dolor sit amet consectetur. Malesuada at maecenas
                   imperdiet scelerisque mattis. Mauris etiam auctor blandit
                   massa vitae magnis enim non dui.
                 </p>
-                <p class="card-text small">April 03, 2022</p>
+                <p className="card-text small">April 03, 2022</p>
               </div>
             </div>
           </div>
-          <div class="column-card2">
+          <div className="column-card2">
             {/* card verti 1 */}
-            <div class="card mb-3" tabindex="0">
-              <div class="row g-0">
-                <div class="col-6 col-md-7">
-                  <div class="card-body">
-                    <h5 class="card-title">
+            <div className="card mb-3" tabindex="0">
+              <div className="row g-0">
+                <div className="col-6 col-md-7">
+                  <div className="card-body">
+                    <h5 className="card-title">
                       Lorem ipsum dolor sit amet consectetur.
                     </h5>
-                    <p class="card-text second">
+                    <p className="card-text second">
                       This is a wider card with supporting text below as a
                       natural lead-in to additional content. This content is a
                       little bit longer.
                     </p>
-                    <p class="card-text small">April 03, 2022</p>
+                    <p className="card-text small">April 03, 2022</p>
                   </div>
                 </div>
-                <div class="col-6 col-md-5 m-0">
+                <div className="col-6 col-md-5 m-0">
                   <img
                     src="./assets/olah-limbah2.png"
-                    class="card-img object-fit-fill"
+                    className="card-img object-fit-fill"
                     alt="Image"
                   />
                 </div>
               </div>
             </div>
             {/* card verti 2 */}
-            <div class="card mb-3" tabindex="0">
-              <div class="row g-0">
-                <div class="col-6 col-md-7">
-                  <div class="card-body">
-                    <h5 class="card-title">
+            <div className="card mb-3" tabindex="0">
+              <div className="row g-0">
+                <div className="col-6 col-md-7">
+                  <div className="card-body">
+                    <h5 className="card-title">
                       Lorem ipsum dolor sit amet consectetur.
                     </h5>
-                    <p class="card-text second">
+                    <p className="card-text second">
                       This is a wider card with supporting text below as a
                       natural lead-in to additional content. This content is a
                       little bit longer.
                     </p>
-                    <p class="card-text small">April 03, 2022</p>
+                    <p className="card-text small">April 03, 2022</p>
                   </div>
                 </div>
-                <div class="col-6 col-md-5 m-0">
+                <div className="col-6 col-md-5 m-0">
                   <img
                     src="./assets/olah-limbah2.png"
-                    class="card-img object-fit-fill"
+                    className="card-img object-fit-fill"
                     alt="Image"
                   />
                 </div>
               </div>
             </div>
             {/* <!-- card verti 3 --> */}
-            <div class="card mb-3" tabindex="0">
-              <div class="row g-0">
-                <div class="col-6 col-md-7">
-                  <div class="card-body">
-                    <h5 class="card-title">
+            <div className="card mb-3" tabindex="0">
+              <div className="row g-0">
+                <div className="col-6 col-md-7">
+                  <div className="card-body">
+                    <h5 className="card-title">
                       Lorem ipsum dolor sit amet consectetur.
                     </h5>
-                    <p class="card-text second">
+                    <p className="card-text second">
                       This is a wider card with supporting text below as a
                       natural lead-in to additional content. This content is a
                       little bit longer.
                     </p>
-                    <p class="card-text small">April 03, 2022</p>
+                    <p className="card-text small">April 03, 2022</p>
                   </div>
                 </div>
-                <div class="col-6 col-md-5 m-0">
+                <div className="col-6 col-md-5 m-0">
                   <img
                     src="./assets/olah-limbah2.png"
-                    class="card-img object-fit-fill"
+                    className="card-img object-fit-fill"
                     alt="Image"
                   />
                 </div>
@@ -110,8 +110,12 @@ function OlahLimbah() {
             </div>
           </div>
         </div>
-        <div id="seeOlah" class="text-center">
-          <a class="btn btn-primary btn-lg" href="/modulOlahBahan" role="button">
+        <div id="seeOlah" className="text-center">
+          <a
+            className="btn btn-primary btn-lg"
+            href="/modulOlahBahan"
+            role="button"
+          >
             Lihat
           </a>
         </div>

@@ -12,12 +12,12 @@ function DashboardPage() {
       <Navbar />
       <Hero />
 
-      <main tabindex="0" id="main-content" class="">
+      <main tabindex="0" id="main-content" className="">
         <section>
           <Feature />
         </section>
 
-        <section class="blue-bg">
+        <section className="blue-bg">
           <Recipe />
           <OlahLimbah />
         </section>

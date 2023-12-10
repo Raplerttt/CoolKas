@@ -5,7 +5,7 @@ const AboutUs = () => {
   const teamMembers = ["a", "b", "c", "d", "e"];
   return (
     <div>
-      <div className="container">
+      <div className="container about-container">
         <section className="about">
           <div className="about-content">
             <h2>

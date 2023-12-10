@@ -1,19 +1,37 @@
-import { useState } from 'react';
-import ReactSimplyCarousel from 'react-simply-carousel';
+import { useState, useEffect } from "react";
+import ReactSimplyCarousel from "react-simply-carousel";
 import "../../style/recipe.css";
-
+import { useNavigate } from "react-router-dom";
+import { getMealListRandom } from "../../utils/api";
 function CarouselRecipe() {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  const navigate = useNavigate();
+  const [meals, setMeals] = useState([]);
+
+  useEffect(() => {
+    // Fungsi untuk mendapatkan data meals
+    const fetchMeals = async () => {
+      try {
+        const result = await getMealListRandom();
+        setMeals(result);
+      } catch (error) {
+        console.error("Error fetching meals:", error);
+      }
+    };
+
+    // Panggil fungsi fetchMeals saat komponen dimuat pertama kali
+    fetchMeals();
+  }, []);
 
   return (
     <div className="carousel-container-recipedash">
       <ReactSimplyCarousel
         containerProps={{
-            style: {
+          style: {
             width: "100%",
             justifyContent: "space-between",
             userSelect: "none",
-            },
+          },
         }}
         activeSlideIndex={activeSlideIndex}
         onRequestChange={setActiveSlideIndex}
@@ -21,32 +39,32 @@ function CarouselRecipe() {
         itemsToScroll={1}
         forwardBtnProps={{
           style: {
-            alignSelf: 'center',
-            background: '#c19875',
-            border: 'none',
-            borderRadius: '50%',
-            color: 'white',
-            cursor: 'pointer',
-            fontSize: '20px',
+            alignSelf: "center",
+            background: "#c19875",
+            border: "none",
+            borderRadius: "50%",
+            color: "white",
+            cursor: "pointer",
+            fontSize: "20px",
             height: 30,
             lineHeight: 1,
-            textAlign: 'center',
+            textAlign: "center",
             width: 30,
           },
           children: <span>{`>`}</span>,
         }}
         backwardBtnProps={{
           style: {
-            alignSelf: 'center',
-            background: '#c19875',
-            border: 'none',
-            borderRadius: '50%',
-            color: 'white',
-            cursor: 'pointer',
-            fontSize: '20px',
+            alignSelf: "center",
+            background: "#c19875",
+            border: "none",
+            borderRadius: "50%",
+            color: "white",
+            cursor: "pointer",
+            fontSize: "20px",
             height: 30,
             lineHeight: 1,
-            textAlign: 'center',
+            textAlign: "center",
             width: 30,
           },
           children: <span>{`<`}</span>,
@@ -61,33 +79,54 @@ function CarouselRecipe() {
         speed={400}
         easing="linear"
       >
-        {Array.from({ length: 10 }).map((item, index) => (
-        <div className="gap-card" key={index}>
+        {meals.map((meal, index) => (
+          <div className="gap-card" key={index}>
             <div className="card">
-            <img
-                src="./assets/sushi-api.jpg"
+              <img
+                src={meal.strMealThumb}
                 className="card-img-top"
                 alt="food_image"
-            />
-            <div id="card-content" className="card-body">
-                <h5 class="card-title">Resep Nusantara</h5>
-                <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-                </p>
+              />
+              <div id="card-content" className="card-body">
+                <h5 className="card-title">{meal.strMeal}</h5>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <p className="card-text">Kategori</p>
+                      </td>
+                      <td>
+                        <p className="card-text">:</p>
+                      </td>
+                      <td>
+                        <p className="card-text">{meal.strCategory}</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p className="card-text">Asal</p>
+                      </td>
+                      <td>
+                        <p className="card-text">:</p>
+                      </td>
+                      <td>
+                        <p className="card-text">{meal.strArea}</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
                 <div id="seeMore" className="d-flex justify-content-center">
-                <button
+                  <button
                     className="btn btn-primary"
-                //   onClick={() => navigate(`#`)}
-                >
+                    onClick={() => navigate(`/modulResep/${meal.idMeal}`)}
+                  >
                     Lihat
-                </button>
+                  </button>
                 </div>
+              </div>
             </div>
-            </div>
-        </div>
+          </div>
         ))}
-
       </ReactSimplyCarousel>
     </div>
   );

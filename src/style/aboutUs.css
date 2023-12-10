@@ -15,7 +15,7 @@
   position: relative;
 }
 
-.container {
+.about-container {
   width: 90%;
   margin: 0 auto;
   padding: 10px 20px;
@@ -30,7 +30,7 @@
 
 .about-image {
   flex: 1;
-  margin-right: 40px;
+  margin-left: 50px;
   overflow: hidden;
   border-radius: 30px;
 }

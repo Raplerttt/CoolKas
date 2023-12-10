@@ -54,26 +54,26 @@ function DetailResepPage() {
       <div className="container container-resep">
         <h1 className="text-center page-title">Modul Resep</h1>
       </div>
-      <div class="detail-recipe">
-        <div class=" detail-recipe-brief">
-          <div class="column">
+      <div className="detail-recipe">
+        <div className=" detail-recipe-brief">
+          <div className="column">
             <img
               src={meal.strMealThumb}
-              class="img-fluid mx-auto d-block"
+              className="img-fluid mx-auto d-block"
               alt={meal.strMeal}
             />
           </div>
-          <div class="column2-detailresep">
+          <div className="column2-detailresep">
             <h1>{meal.strMeal}</h1>
             <table>
               <tr>
                 <td>
                   <p>Kategori</p>
                 </td>
-                <td class="colon">
+                <td className="colon">
                   <p>:</p>
                 </td>
-                <td class="kategori-resep">
+                <td className="kategori-resep">
                   <p>{meal.strCategory}</p>
                 </td>
               </tr>
@@ -81,19 +81,19 @@ function DetailResepPage() {
                 <td>
                   <p>Asal</p>
                 </td>
-                <td class="colon">
+                <td className="colon">
                   <p>:</p>
                 </td>
-                <td class="asal-resep">
+                <td className="asal-resep">
                   <p>{meal.strArea}</p>
                 </td>
               </tr>
             </table>
-            <div class="categories">
+            <div className="categories">
               {meal.strTags &&
                 meal.strTags.split(",").map((tag, index) => (
-                  <div class="container-ctgry" key={index}>
-                    <p class="category">{tag.trim()}</p>
+                  <div className="container-ctgry" key={index}>
+                    <p className="category">{tag.trim()}</p>
                   </div>
                 ))}
             </div>
