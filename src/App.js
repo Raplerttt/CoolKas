@@ -22,7 +22,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<DashboardPage />}></Route>
+        <Route path="/Dashboard" element={<DashboardPage />}></Route>
         <Route path="/register" element={<RegisterPage />}></Route>
         <Route path="/forgetPass" element={<ForgetPassPage />}></Route>
         <Route path="/login" element={<LoginPage />}></Route>
