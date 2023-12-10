@@ -3,7 +3,9 @@ import $ from "jquery";
 import "bootstrap-datepicker";
 import "bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css";
 import "../style/belanja.css";
+import { useNavigate } from "react-router-dom";
 const Aktivitas = () => {
+  const navigate = useNavigate();
   const tanggalAktivitas = useRef(null);
   useEffect(() => {
     $(tanggalAktivitas.current).datepicker({
@@ -66,7 +68,9 @@ const Aktivitas = () => {
           </button>
         </form>
       </div>
-      <button className="btn-back">{"<"}</button>
+      <button className="btn-back" onClick={() => navigate(`/penyimpanan`)}>
+        {"<"}
+      </button>
     </div>
   );
 };

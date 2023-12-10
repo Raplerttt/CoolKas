@@ -1,10 +1,12 @@
 import React from "react";
 import "../style/penyimpanan.css";
+import { useNavigate } from "react-router-dom";
 const Penyimpanan = () => {
+  const navigate = useNavigate();
   return (
     <div className="mx-5 text-center">
-      <h1 className="fw-bold color-soft-dark-brown penyimpanan-judul shadow-small my-4">
-        Jenis-Jenis Makanan
+      <h1 className="fw-bold color-soft-dark-brown penyimpanan-judul shadow-small my-4 mt-5">
+        Jenis Stok Makanan
       </h1>
 
       <div className="card penyimpanan-card color-soft-blue p-2 mb-5">
@@ -233,12 +235,72 @@ const Penyimpanan = () => {
           </div>
         </div>
       </div>
+      <div className="container-log">
+        <div class="log-tittle">
+          <h1>Riwayat Penyimpanan</h1>
+        </div>
+        <table class="log-aktivitas">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Tanggal Aktivitas</th>
+              <th>Keterangan Aktivitas</th>
+              <th>Nama Bahan</th>
+              <th>Jenis Bahan</th>
+              <th>Jumlah</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>01/01/2024</td>
+              <td>masak</td>
+              <td>Telur</td>
+              <td>Telur & Bahan</td>
+              <td>2 kg</td>
+            </tr>
 
-      <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"
-      ></script>
+            <tr>
+              <td>2</td>
+              <td>01/01/2024</td>
+              <td>masak</td>
+              <td>Telur</td>
+              <td>Telur & Bahan</td>
+              <td>2 kg</td>
+            </tr>
+
+            <tr>
+              <td>3</td>
+              <td>01/01/2024</td>
+              <td>masak</td>
+              <td>Telur</td>
+              <td>Telur & Bahan</td>
+              <td>2 kg</td>
+            </tr>
+
+            <tr>
+              <td>4</td>
+              <td>01/01/2024</td>
+              <td>masak</td>
+              <td>Telur</td>
+              <td>Telur & Bahan</td>
+              <td>2 kg</td>
+            </tr>
+
+            <tr>
+              <td>5</td>
+              <td>01/01/2024</td>
+              <td>masak</td>
+              <td>Telur</td>
+              <td>Telur & Bahan</td>
+              <td>2 kg</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="add-button" onClick={() => navigate(`/belanja`)}>
+        +
+      </button>
     </div>
   );
 };
