@@ -8,15 +8,16 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                script {
-                    checkout scm
-                }
+                checkout scm
             }
         }
 
         stage('Build') {
             steps {
                 script {
+                    def nodeHome = tool 'NodeJS'
+                    env.PATH = "${nodeHome}/bin:${env.PATH}"
+
                     sh 'npm install'
                     sh 'npm run build'
                 }
