@@ -15,7 +15,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    def nodeHome = tool 'NodeJS'
+                    def nodeHome = tool 'Default'
                     env.PATH = "${nodeHome}/bin:${env.PATH}"
 
                     sh 'npm install'
