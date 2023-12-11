@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className="blue-box">
       <div className="blue-box-content">
-        <img src="../assets/logo2.png" alt="Coolkas Image" />
+        <img src="../assets/logo2.png" alt="Coolkas Logo" />
         <div className="text">
           <p>Coolkas</p>
           <ul>
@@ -33,7 +33,7 @@ const Footer = () => {
           <p>Media Sosial Kami</p>
           <ul className="sosmed-icons">
             <li>
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href="/" target="_blank" rel="noopener noreferrer">
                 <img src="../assets/facebook.png" alt="Facebook" />
               </a>
             </li>
