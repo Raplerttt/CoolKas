@@ -7,12 +7,12 @@ function OlahLimbah() {
   return (
     <div className="olah-limbah">
       <div className="container">
-        <div className="title-container" tabindex="0">
+        <div className="title-container" tabIndex="0">
           <h1>Modul Olah Limbah</h1>
           <p>Jelajahi dan pelajari cara mengolah limbah makananmu!</p>
         </div>
         <div className="container-card">
-          <div className="column-card1" tabindex="0">
+          <div className="column-card1" tabIndex="0">
             <div className="card">
               <img
                 src="./assets/olah-limbah.png"
@@ -34,7 +34,7 @@ function OlahLimbah() {
           </div>
           <div className="column-card2">
             {/* card verti 1 */}
-            <div className="card mb-3" tabindex="0">
+            <div className="card mb-3" tabIndex="0">
               <div className="row g-0">
                 <div className="col-6 col-md-7">
                   <div className="card-body">
@@ -59,7 +59,7 @@ function OlahLimbah() {
               </div>
             </div>
             {/* card verti 2 */}
-            <div className="card mb-3" tabindex="0">
+            <div className="card mb-3" tabIndex="0">
               <div className="row g-0">
                 <div className="col-6 col-md-7">
                   <div className="card-body">
@@ -84,7 +84,7 @@ function OlahLimbah() {
               </div>
             </div>
             {/* <!-- card verti 3 --> */}
-            <div className="card mb-3" tabindex="0">
+            <div className="card mb-3" tabIndex="0">
               <div className="row g-0">
                 <div className="col-6 col-md-7">
                   <div className="card-body">

@@ -35,6 +35,11 @@ function ModulResepPage() {
     fetchMeals();
   }, [category]);
 
+  const handleCategory = (e, category) => {
+    e.preventDefault();
+    setCategory(category);
+  };
+
   const MealList = () => {
     if (!meals) {
       return null; // Tidak melakukan map jika meals adalah null atau undefined
@@ -110,7 +115,7 @@ function ModulResepPage() {
                         <button
                           className="dropdown-item"
                           type="button"
-                          onClick={() => setCategory(category)}
+                          onClick={(e) => handleCategory(e, category)}
                         >
                           {category}
                         </button>

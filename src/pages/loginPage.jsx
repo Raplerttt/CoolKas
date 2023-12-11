@@ -18,13 +18,14 @@ const LoginPage = () => {
         username,
         password,
       });
-
+      window.alert("Berhasil Login");
       // Di sini Anda dapat menanggapi respons dari backend sesuai kebutuhan aplikasi Anda
       console.log("Login successful:", response.data);
 
       navigate(`/Dashboard`);
     } catch (error) {
       setError("Username atau password tidak sesuai");
+      window.alert("Username atau password tidak sesuai");
       // Tindakan lain yang ingin Anda lakukan jika login gagal
     }
   };

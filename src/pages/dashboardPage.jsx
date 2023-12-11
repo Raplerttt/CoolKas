@@ -12,7 +12,7 @@ function DashboardPage() {
       <Navbar />
       <Hero />
 
-      <main tabindex="0" id="main-content" className="">
+      <main tabIndex="0" id="main-content" className="">
         <section>
           <Feature />
         </section>

@@ -34,7 +34,7 @@ function Navbar() {
         </button>
         <ul className={`menu-nav${navbarOpen ? " show-menu" : ""}`}>
           <li className="main-nav">
-            <a href="/">Home</a>
+            <a href="/Dashboard">Home</a>
           </li>
           <li className="main-nav">
             <a href="/penyimpanan">Penyimpanan </a>
