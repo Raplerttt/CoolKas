@@ -32,7 +32,7 @@ const ForgetPassPage = () => {
           </div>
           <div className="home-icon">
             &#127968;
-            <a href="#" className="form-link">
+            <a href="/Dashboard" className="form-link">
               <h2>Home</h2>
             </a>
           </div>

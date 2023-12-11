@@ -33,17 +33,17 @@ const Footer = () => {
           <p>Media Sosial Kami</p>
           <ul className="sosmed-icons">
             <li>
-              <a href="/" target="_blank" rel="noopener noreferrer">
+              <a href="/Dashboard" target="_blank" rel="noopener noreferrer">
                 <img src="../assets/facebook.png" alt="Facebook" />
               </a>
             </li>
             <li>
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href="/Dashboard" target="_blank" rel="noopener noreferrer">
                 <img src="../assets/instagram.png" alt="Instagram" />
               </a>
             </li>
             <li>
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href="/Dashboard" target="_blank" rel="noopener noreferrer">
                 <img src="../assets/twitter.png" alt="Twitter" />
               </a>
             </li>

@@ -24,7 +24,7 @@ function DetailResepPage() {
 
     // Panggil fungsi fetchMeals saat komponen dimuat pertama kali
     fetchMeals();
-  }, []);
+  }, [idAsNumber]);
 
   // Fungsi untuk mendapatkan bahan dan ukuran yang tidak null dan tidak kosong
   const getIngredients = (meal) => {
