@@ -56,7 +56,7 @@ function DetailResepPage() {
       </div>
       <div className="detail-recipe">
         <div className=" detail-recipe-brief">
-          <div className="column">
+          <div className="column1-detailresep">
             <img
               src={meal.strMealThumb}
               className="img-fluid mx-auto d-block"
@@ -127,7 +127,7 @@ function DetailResepPage() {
             <div className="card rounded-3 jenis-olah-bahan">
               <div className="card-body">
                 <h3 className="card-title text-center">Bahan-bahan:</h3>
-                <ul className="card-text">
+                <ul className="bahan">
                   {getIngredients(meal).map((ingredient, index) => (
                     <li key={index}>{ingredient}</li>
                   ))}

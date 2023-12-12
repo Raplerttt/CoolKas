@@ -19,14 +19,14 @@
   background-color: #618985;
   text-align: left;
   padding: 15px 10px;
-  padding-left: 80px;
   position: relative;
   padding-bottom: 2px;
 }
 
 .blue-box .blue-box-content {
   display: flex;
-  align-items: center;
+  justify-content: space-around;
+  align-items: flex-start;
   flex-wrap: wrap;
   padding-top: 5px;
 }
@@ -35,18 +35,17 @@
   width: 150px;
   height: 110px;
   border-radius: 8px;
-  margin-left: 40px;
+  margin: auto 20px;
   vertical-align: middle;
 }
 
 .blue-box .text {
   color: #fff;
-  font-family: "Poppins", sans-serif;
   font-size: 20px;
-  margin-top: 10px;
-  margin-left: 12%;
-  flex: 1;
+  /* margin-left: 12%; */
+  /* flex: 1; */
 }
+
 .blue-box::before {
   content: "";
   display: block;
@@ -55,19 +54,19 @@
   left: 0;
   right: 0;
   height: 1px;
-  /* Ketebalan garis merah */
-  background-color: white;
-  /* Warna merah */
+}
+
+.blue-box .get-simplicity{
+  font-size: 18px;
+  text-align: center;
 }
 
 .blue-box p {
   color: #fff;
-  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: italic;
   font-weight: 500;
   line-height: 180%;
-  /* 57.6px */
 }
 
 .blue-box ul {
@@ -76,58 +75,36 @@
   margin: 0;
 }
 
-.blue-box ul li {
+.blue-box ul li a{
   font-size: 16px;
-}
-
-.get-simplicity {
-  color: #fff;
-  font-family: "Poppins", sans-serif;
-  font-size: 20px;
-}
-
-.blue-box ul li {
-  font-size: 16px;
-
+  text-decoration: none;
   color: rgba(255, 255, 255, 0.4);
-}
-
-.blue-box-content {
-  display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
-.text,
-.additional-text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.additional-text {
-  margin-top: 11px;
-  margin-right: 45%;
+.blue-box ul li a:hover{
+  color: white;
 }
 
 .text,
-.additional-text lane {
+.additional-text,
+.lane,
+.sosmed-box{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  /* justify-content: space-between; */
 }
-.lane {
-  margin-top: -123px;
-  margin-left: 60%;
-  margin-right: 10%;
+
+.additional-text li,
+.lane li{
+  padding: 0rem 0 0.5rem;
 }
 
 /* sosmed */
 
 .sosmed-box {
-  margin-left: 75%;
   text-align: center;
-  margin-top: -14%;
 }
 
 .sosmed-box p {
@@ -144,10 +121,25 @@
 
 .sosmed-icons li {
   margin: 0 10px;
+  background-color: white;
+  padding: 1.25rem 0rem;
+  border-radius: 50px;
 }
 
 .sosmed-icons img {
   width: 30px;
   height: 30px;
   margin-left: 20px;
+}
+
+@media screen and (max-width: 505px) {
+  .logo-tagline,
+  .text,
+  .additional-text,
+  .lane,
+  .sosmed-box
+  {
+    padding: 1rem 0;
+  }
+   
 }

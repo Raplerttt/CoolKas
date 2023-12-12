@@ -13,19 +13,18 @@ about coolkas brief
   margin: 5rem auto 3rem;
 }
 
-.column {
-  margin-left: 5rem;
-  padding: 2rem;
+.column-about {
+  padding: 5rem;
 }
 
-.column img {
+.column-about img {
   width: 80%;
   text-align: center;
   border-radius: 30px;
   transition: transform 0.3s;
 }
 
-.column img:hover {
+.column-about img:hover {
   transform: scale(1.25);
   box-shadow: 0px 25px 100px 0px rgba(0, 0, 0, 0.3);
 }
@@ -49,7 +48,7 @@ about coolkas brief
   font-size: 24px;
   color: black;
   margin-top: 1rem;
-  margin-left: 5rem;
+  margin-left: 2rem;
   margin-bottom: 2rem;
 }
 
@@ -64,4 +63,37 @@ about coolkas brief
 .about #seeAbout .btn:hover {
   background: #80654e;
   color: white;
+}
+
+
+@media screen and (max-width: 1010px) 
+{
+  .about-brief {
+    grid-template-columns: 1fr;
+  }
+
+  .column-about img {
+    width: 40%;
+  }
+
+  .column-about {
+    padding: 2rem;
+  }
+
+  .column2 {
+    margin: 2rem 0rem 2rem 0rem;
+    text-align: right;
+  }
+
+  .column2 h1 {
+    text-align: center;
+  }
+  
+  .column2 p {
+    text-align: justify;
+    font-size: 24px;
+    color: black;
+    margin-top: 1rem;
+    margin-right: 2rem;
+  }
 }

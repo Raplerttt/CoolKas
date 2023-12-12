@@ -8,7 +8,7 @@ function OlahLimbah() {
     <div className="olah-limbah">
       <div className="container">
         <div className="title-container" tabIndex="0">
-          <h1>Modul Olah Limbah</h1>
+          <h1>Modul Olah Bahan</h1>
           <p>Jelajahi dan pelajari cara mengolah limbah makananmu!</p>
         </div>
         <div className="container-card">

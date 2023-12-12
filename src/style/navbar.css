@@ -115,7 +115,7 @@ RESPONSIVE
 
 */
 
-@media screen and (min-width: 1010px) {
+@media screen and (min-width: 1150px) {
 
   .app-bar {
     grid-template-columns: 1fr 2fr;

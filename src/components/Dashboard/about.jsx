@@ -5,7 +5,7 @@ function About() {
   return (
     <div className="about d-flex align-items-center">
       <div className="about-brief">
-        <div className="column">
+        <div className="column-about text-center">
           <img
             src="./assets/coolkas.png"
             className="img-fluid mx-auto d-block"
