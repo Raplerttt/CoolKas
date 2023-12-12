@@ -35,6 +35,10 @@
   flex-direction: row;
 }
 
+.penyimpanan-card h5{
+  font-size: 18px;
+}
+
 .penyimpanan-card img {
   width: 10vw;
 }
@@ -44,20 +48,15 @@
   color: white;
 }
 
-.log-tittle {
+.log-tittle h1{
   margin-bottom: 20px;
   color: #414535;
   font-weight: 700;
-  line-height: normal;
-  text-transform: capitalize;
-
-  position: relative;
-  z-index: 30;
 }
 
 .log-aktivitas {
-  background: #eebd93;
-  width: 85%;
+  background: #C19875;
+  width: 100%;
   padding: 3px;
   align-items: center;
 }
@@ -65,6 +64,8 @@
 .log-aktivitas th,
 .log-aktivitas td {
   border: 1px solid #ddd;
+  color: #fff;
+  background: #C19875;
   padding: 8px 15px;
   text-align: left;
 }
@@ -101,7 +102,18 @@
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   padding-bottom: 80px;
+}
+
+@media screen and (max-width: 500px){
+  .log-tittle h1{
+    font-size: 40px !important; 
+  }
+}
+
+@media screen and (max-width: 400px){
+  .log-tittle h1{
+    font-size: 30px !important; 
+  }
 }
