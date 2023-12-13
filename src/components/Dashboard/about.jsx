@@ -13,7 +13,7 @@ function About() {
           />
         </div>
         <div className="column2">
-          <h1>Tentang CoolKas</h1>
+          <h1>Tentang <span>CoolKas</span></h1>
           <p>
             Aplikasi web inovatif yang dirancang untuk memberikan solusi yang
             efektif terhadap masalah umum yang dihadapi oleh banyak individu dan

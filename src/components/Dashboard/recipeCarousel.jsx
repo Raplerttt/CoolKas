@@ -81,7 +81,7 @@ function CarouselRecipe() {
       >
         {meals.map((meal, index) => (
           <div className="gap-card" key={index}>
-            <div className="card">
+            <div className="card carousel-hover">
               <img
                 src={meal.strMealThumb}
                 className="card-img-top"

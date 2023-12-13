@@ -43,6 +43,21 @@ about coolkas brief
   margin-bottom: 1rem;
 }
 
+.column2 h1 span{
+  overflow: hidden;
+  background: linear-gradient(to right, #96BBBB, #96BBBB 50%, #414535 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
+}
+
+.column2 h1 span:hover{
+  background-position: 0 100%;
+}
+
 .column2 p {
   text-align: right;
   font-size: 24px;

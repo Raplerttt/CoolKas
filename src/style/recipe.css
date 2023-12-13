@@ -15,18 +15,21 @@ RESEP
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.recipe .card:hover{
+  top: -15px;
+  transition: 0.5s ease-in-out;
+  background-color: #e4e4e4;
+}
+
 .recipe p {
   font-size: 20px;
   color: white;
 }
 
-
-
 .recipe img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  height: 80%;
   width: 100%;
   border-radius: 10px 10px 0px 0px;
 }
@@ -76,12 +79,9 @@ RESEP
   font-size: 14px;
 }
 
+
 .recipe .carousel-inner .btn {
   background-color: #c19875;
   border: none;
   width: 65px;
-}
-
-.card img {
-  max-height: 100%;
 }
