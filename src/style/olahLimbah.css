@@ -81,13 +81,13 @@ olah limbah
   justify-content: end;
 }
 
-.verti-card-pic{
+.verti-card-pic {
   height: 100%;
   object-fit: cover !important;
   border-radius: 0px 10px 10px 0px;
 }
 
-.column-card2 .card{
+.column-card2 .card {
   transition: transform 0.3s;
 }
 

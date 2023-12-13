@@ -12,7 +12,7 @@ const Register = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    
+
     try {
       // Kirim data pendaftaran ke backend
       const response = await axios.post("http://localhost:3001/register", {

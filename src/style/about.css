@@ -43,9 +43,9 @@ about coolkas brief
   margin-bottom: 1rem;
 }
 
-.column2 h1 span{
+.column2 h1 span {
   overflow: hidden;
-  background: linear-gradient(to right, #96BBBB, #96BBBB 50%, #414535 50%);
+  background: linear-gradient(to right, #96bbbb, #96bbbb 50%, #414535 50%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -54,7 +54,7 @@ about coolkas brief
   transition: background-position 275ms ease;
 }
 
-.column2 h1 span:hover{
+.column2 h1 span:hover {
   background-position: 0 100%;
 }
 
@@ -80,9 +80,7 @@ about coolkas brief
   color: white;
 }
 
-
-@media screen and (max-width: 1010px) 
-{
+@media screen and (max-width: 1010px) {
   .about-brief {
     grid-template-columns: 1fr;
   }
@@ -103,7 +101,7 @@ about coolkas brief
   .column2 h1 {
     text-align: center;
   }
-  
+
   .column2 p {
     text-align: justify;
     font-size: 24px;

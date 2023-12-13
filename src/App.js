@@ -37,7 +37,7 @@ function App() {
           element={<DetailOlahBahanPage />}
         ></Route>
         <Route path="/modulResep" element={<ModulResepPage />}></Route>
-        <Route path="/modulResep/:id" element={<DetailResepPage />}></Route>
+        <Route path="/modulResep/detail" element={<DetailResepPage />}></Route>
         <Route path="/aboutUs" element={<AboutUsPage />}></Route>
         <Route path="/contactUs" element={<ContactUsPage />}></Route>
         <Route path="/akun" element={<AccountPage />}></Route>

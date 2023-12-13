@@ -40,6 +40,11 @@ function ModulResepPage() {
     setCategory(category);
   };
 
+  const handleDetail = (meal) => {
+    // Menggunakan object state untuk menyertakan data meal.idMeal
+    navigate(`/modulResep/detail`, { state: { mealId: meal.idMeal } });
+  };
+
   const MealList = () => {
     if (!meals) {
       return null; // Tidak melakukan map jika meals adalah null atau undefined
@@ -74,7 +79,7 @@ function ModulResepPage() {
               <div id="seeMore" className="d-flex justify-content-center">
                 <button
                   className="btn btn-primary"
-                  onClick={() => navigate(`/modulResep/${meal.idMeal}`)}
+                  onClick={() => handleDetail(meal)}
                 >
                   Lihat
                 </button>
