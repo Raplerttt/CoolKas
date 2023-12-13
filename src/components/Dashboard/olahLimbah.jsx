@@ -16,7 +16,7 @@ function OlahLimbah() {
             <div className="card">
               <img
                 src="./assets/olah-limbah.png"
-                className="card-img-top"
+                className="card-img-top img-fluid"
                 alt="Image"
               />
               <div className="card-body">
@@ -51,8 +51,8 @@ function OlahLimbah() {
                 </div>
                 <div className="col-6 col-md-5 m-0">
                   <img
-                    src="./assets/olah-limbah2.png"
-                    className="card-img object-fit-fill"
+                    src="./assets/olah-limbah3.jpg"
+                    className="verti-card-pic card-img-top img-fluid object-fit-fill"
                     alt="Image"
                   />
                 </div>
@@ -76,8 +76,8 @@ function OlahLimbah() {
                 </div>
                 <div className="col-6 col-md-5 m-0">
                   <img
-                    src="./assets/olah-limbah2.png"
-                    className="card-img object-fit-fill"
+                    src="./assets/olah-limbah4.jpg"
+                    className="verti-card-pic card-img-top img-fluid object-fit-cover"
                     alt="Image"
                   />
                 </div>
@@ -102,7 +102,7 @@ function OlahLimbah() {
                 <div className="col-6 col-md-5 m-0">
                   <img
                     src="./assets/olah-limbah2.png"
-                    className="card-img object-fit-fill"
+                    className="verti-card-pic card-img-top img-fluid object-fit-cover"
                     alt="Image"
                   />
                 </div>

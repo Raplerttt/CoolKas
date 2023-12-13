@@ -46,6 +46,13 @@ olah limbah
   height: 100%;
   text-align: left;
   color: red;
+  transition: transform 0.3s;
+}
+
+.column-card1:hover {
+  transform: scale(1.125);
+  box-shadow: 0px 25px 100px 0px rgba(0, 0, 0, 0.3);
+  z-index: 9;
 }
 
 .column-card1 h5 {
@@ -70,13 +77,24 @@ olah limbah
 .column-card2 {
   flex-direction: column;
   width: 80%;
-  height: 100%;
   text-align: left;
   justify-content: end;
 }
 
-.column-card2 img {
+.verti-card-pic {
+  height: 100%;
+  object-fit: cover !important;
   border-radius: 0px 10px 10px 0px;
+}
+
+.column-card2 .card {
+  transition: transform 0.3s;
+}
+
+.column-card2 .card:hover {
+  transform: scale(1.125);
+  box-shadow: 0px 25px 100px 0px rgba(0, 0, 0, 0.3);
+  z-index: 9;
 }
 
 .column-card2 h5 {
@@ -109,4 +127,22 @@ olah limbah
 .olah-limbah #seeOlah .btn:hover {
   background: #80654e;
   color: white;
+}
+
+@media screen and (max-width: 1200px) {
+  .container-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .olah-limbah .container .title-container h1,
+  .olah-limbah .container .title-container p {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .olah-limbah .container {
+    padding: 2rem 3rem;
+  }
 }

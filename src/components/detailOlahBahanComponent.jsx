@@ -1,25 +1,41 @@
-import React from "react";
-import { getData } from "../utils/data";
+import React, { useEffect, useState } from "react";
+import { getDetailModul } from "../utils/api";
 import ReactPlayer from "react-player/youtube";
-
-function DetailOlahBahan({ id }) {
-  const moduls = getData();
+import { useParams } from "react-router-dom";
+function DetailOlahBahan() {
+  const { id } = useParams();
+  const [modul, setModul] = useState([]);
   const idAsNumber = parseInt(id, 10);
-  const data = moduls.find((modul) => modul.id === idAsNumber);
+  useEffect(() => {
+    // Fungsi untuk mendapatkan data meals
+    const fetchModul = async () => {
+      try {
+        const result = await getDetailModul(idAsNumber);
+        setModul(result);
+      } catch (error) {
+        console.error("Error fetching meals:", error);
+      }
+    };
+
+    // Panggil fungsi fetchModul saat komponen dimuat pertama kali
+    fetchModul();
+  }, []);
 
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-6">
           <img
-            src={data.image}
-            alt={data.judul}
+            src="/assets/olah-limbah.png"
+            alt={modul.judul_modul}
             className="img-fluid rounded-5"
           />
         </div>
         <div className="col-md-6 mt-3">
-          <h2>{data.judul}</h2>
-          <p>{data.deskripsi}</p>
+          <h2 className="judul-modul-olah-bahan mb-4 mt-0">
+            {modul.judul_modul}
+          </h2>
+          <p>{modul.deskripsi}</p>
         </div>
       </div>
       <div className="container">
@@ -28,7 +44,13 @@ function DetailOlahBahan({ id }) {
             <div className="card rounded-3 cara-olah-bahan">
               <div className="card-body">
                 <h3 className="card-title text-center">Cara Mengolah Bahan:</h3>
-                <p className="card-text">{data.cara}</p>
+                {modul.cara_mengolah && (
+                  <ol className="list-group list-group-flush">
+                    {modul.cara_mengolah.split("/n").map((step, index) => (
+                      <li key={index}> {step}</li>
+                    ))}
+                  </ol>
+                )}
               </div>
             </div>
           </div>
@@ -36,11 +58,13 @@ function DetailOlahBahan({ id }) {
             <div className="card rounded-4 jenis-olah-bahan">
               <div className="card-body">
                 <h3 className="card-title text-center">Jenis Bahan:</h3>
-                <ul className="card-text">
-                  {data.jenis.map((jenis, index) => (
-                    <li key={index}>{jenis}</li>
-                  ))}
-                </ul>
+                {modul.jenis_bahan && (
+                  <ul className="list-group list-group-flush">
+                    {modul.jenis_bahan.split("/n").map((step, index) => (
+                      <li key={index}> {step}</li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </div>
           </div>
@@ -52,7 +76,7 @@ function DetailOlahBahan({ id }) {
           <h3>Video Tutorial:</h3>
           <div className="video-container">
             <ReactPlayer
-              url={data.link}
+              url={modul.video_tutorial}
               controls // Menampilkan tombol play dan kontrol video
               width="60%" // Mengisi lebar video 100% dari container
               style={{ margin: "auto" }}

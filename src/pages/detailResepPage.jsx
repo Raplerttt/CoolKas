@@ -2,29 +2,28 @@
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player/youtube";
 import Navbar from "../components/navbarComponent";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Footer, AppFooter } from "../components/footer";
 import "../style/detailresep.css";
 import { getDetailMeal } from "../utils/api";
 
 function DetailResepPage() {
-  const { id } = useParams();
+  const location = useLocation();
+  const { mealId } = location.state;
   const [meal, setMeal] = useState([]);
-  const idAsNumber = parseInt(id, 10);
   useEffect(() => {
-    // Fungsi untuk mendapatkan data meals
     const fetchMeals = async () => {
       try {
-        const result = await getDetailMeal(idAsNumber);
+        const result = await getDetailMeal(mealId);
         setMeal(result);
       } catch (error) {
         console.error("Error fetching meals:", error);
       }
     };
 
-    // Panggil fungsi fetchMeals saat komponen dimuat pertama kali
+    // Call the fetchMeals function when the component is first loaded
     fetchMeals();
-  }, [idAsNumber]);
+  }, [mealId]);
 
   // Fungsi untuk mendapatkan bahan dan ukuran yang tidak null dan tidak kosong
   const getIngredients = (meal) => {
