@@ -4,9 +4,11 @@ import "bootstrap-datepicker";
 import "bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css";
 import "../style/belanja.css";
 import { useNavigate } from "react-router-dom";
+
 const Aktivitas = () => {
   const navigate = useNavigate();
   const tanggalAktivitas = useRef(null);
+
   useEffect(() => {
     $(tanggalAktivitas.current).datepicker({
       format: "yyyy-mm-dd",
@@ -14,22 +16,23 @@ const Aktivitas = () => {
       todayHighlight: true,
     });
   }, []);
+
   return (
     <div>
       <div className="kotak_login">
         <form action="">
-          <select className="input-form" name="Jenis Makanan">
-            <option value="" disabled selected hidden>
+          <select className="input-form" name="Keterangan Aktivitas">
+            <option value="" disabled defaultValue hidden>
               Keterangan Aktivitas
             </option>
-            <option value="">Belanja</option>
-            <option value="">Masak</option>
+            <option value="Belanja">Belanja</option>
+            <option value="Masak">Masak</option>
           </select>
           <select className="input-form" name="Jenis Makanan">
-            <option value="" disabled selected hidden>
+            <option value="" disabled defaultValue hidden>
               Jenis Makanan
             </option>
-            <option value="">Mie</option>
+            <option value="Mie">Mie</option>
           </select>
           <input
             className="input-form"

@@ -34,7 +34,7 @@ const Register = () => {
   };
 
   return (
-    <body className="body-login">
+    <div className="body-login">
       <div className="form-wrapper form-login">
         <h2 className="form-title-login">Register</h2>
         <form onSubmit={handleRegister}>
@@ -112,7 +112,7 @@ const Register = () => {
           </p>
         </div>
       </div>
-    </body>
+    </div>
   );
 };
 

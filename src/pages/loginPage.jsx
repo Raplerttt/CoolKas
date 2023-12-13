@@ -31,7 +31,7 @@ const LoginPage = () => {
   };
 
   return (
-    <body className="body-login">
+    <div className="body-login">
       <div className="form-wrapper form-login rounded-4">
         <h2 className="form-title-login">Login</h2>
         <form onSubmit={handleLogin}>
@@ -87,7 +87,7 @@ const LoginPage = () => {
           </p>
         </div>
       </div>
-    </body>
+    </div>
   );
 };
 

@@ -19,7 +19,7 @@ function DetailOlahBahan() {
 
     // Panggil fungsi fetchModul saat komponen dimuat pertama kali
     fetchModul();
-  }, []);
+  }, [idAsNumber]);
 
   return (
     <div className="container">

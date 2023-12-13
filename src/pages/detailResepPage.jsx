@@ -65,28 +65,30 @@ function DetailResepPage() {
           <div className="column2-detailresep">
             <h1>{meal.strMeal}</h1>
             <table>
-              <tr>
-                <td>
-                  <p>Kategori</p>
-                </td>
-                <td className="colon">
-                  <p>:</p>
-                </td>
-                <td className="kategori-resep">
-                  <p>{meal.strCategory}</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>Asal</p>
-                </td>
-                <td className="colon">
-                  <p>:</p>
-                </td>
-                <td className="asal-resep">
-                  <p>{meal.strArea}</p>
-                </td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td>
+                    <p>Kategori</p>
+                  </td>
+                  <td className="colon">
+                    <p>:</p>
+                  </td>
+                  <td className="kategori-resep">
+                    <p>{meal.strCategory}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Asal</p>
+                  </td>
+                  <td className="colon">
+                    <p>:</p>
+                  </td>
+                  <td className="asal-resep">
+                    <p>{meal.strArea}</p>
+                  </td>
+                </tr>
+              </tbody>
             </table>
             <div className="categories">
               {meal.strTags &&

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useRef, useEffect } from "react";
 import "../style/navbar.css";
 
@@ -40,16 +41,15 @@ function Navbar() {
             <a href="/penyimpanan">Penyimpanan </a>
           </li>
           <li className="nav-item dropdown">
-            <a
+            <div
               className="nav-link dropdown-toggle"
-              href="/"
               id="navbarDropdown"
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
               Modul
-            </a>
+            </div>
             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
                 <a className="dropdown-item" href="/modulResep">
@@ -63,6 +63,7 @@ function Navbar() {
               </li>
             </ul>
           </li>
+
           <li className="main-nav">
             <a href="/contactUs">Contact Us</a>
           </li>
@@ -70,16 +71,15 @@ function Navbar() {
             <a href="/aboutUs">About Us</a>
           </li>
           <li className="nav-item dropdown">
-            <a
+            <div
               className="nav-link dropdown-toggle"
-              href="/"
               id="navbarDropdown"
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
               Account
-            </a>
+            </div>
             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
                 <a className="dropdown-item" href="/akun">

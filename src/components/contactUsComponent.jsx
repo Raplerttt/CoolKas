@@ -38,37 +38,28 @@ function ContactUs() {
             segera menghubungi Anda !
           </p>
           <div className="mb-3">
-            <label for="formGroupExampleInput" className="form-label">
-              Nama
-            </label>
+            <label className="form-label">Nama</label>
             <input
               type="text"
               className="form-control"
-              id="formGroupExampleInput"
               placeholder="Masukan nama Anda"
               name="user_name"
             />
           </div>
           <div className="mb-3">
-            <label for="formGroupExampleInput2" className="form-label">
-              Email
-            </label>
+            <label className="form-label">Email</label>
             <input
               type="text"
               className="form-control"
-              id="formGroupExampleInput2"
               placeholder="Masukan email Anda"
               name="user_email"
             />
           </div>
 
           <div className="mb-4">
-            <label for="exampleFormControlTextarea1" className="form-label">
-              Pesan
-            </label>
+            <label className="form-label">Pesan</label>
             <textarea
               className="form-control"
-              id="exampleFormControlTextarea1"
               rows="2"
               placeholder="Masukan pesan Anda"
               name="message"
