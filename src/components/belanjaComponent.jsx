@@ -1,45 +1,102 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import $ from "jquery";
 import "../style/belanja.css";
 import "bootstrap-datepicker";
 import "bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css";
 import { useNavigate } from "react-router-dom";
-
+import { belanja } from "../utils/api";
 const Belanja = () => {
   const navigate = useNavigate();
-  const tanggalAwalRef = useRef(null);
-  const tanggalAkhirRef = useRef(null);
+  const [id_jenis_bahan, setId_jenis_bahan] = useState(1);
+  const [id_user, setId_user] = useState();
+  const [jumlah, setJumlah] = useState(0);
+  const [satuan, setSatuan] = useState("pcs");
+  const [lokasi_penyimpanan, setLokasi_penyimpanan] = useState("");
+  const [nama_bahan, setNama_bahan] = useState("");
+  const [keterangan_aktivitas, setKeterangan_aktivitas] = useState("");
+  const tanggalAktivitas = useRef(null);
+  const tanggalKadaluarsa = useRef(null);
 
   useEffect(() => {
-    $(tanggalAwalRef.current).datepicker({
+    $(tanggalAktivitas.current).datepicker({
       format: "yyyy-mm-dd",
       autoclose: true,
       todayHighlight: true,
     });
-    $(tanggalAkhirRef.current).datepicker({
+    $(tanggalKadaluarsa.current).datepicker({
       format: "yyyy-mm-dd",
       autoclose: true,
       todayHighlight: true,
     });
+    setKeterangan_aktivitas("Belanja");
+    setId_user(1);
   }, []);
 
+  const handleJenisBahanChange = (e) => {
+    setId_jenis_bahan(e.target.value);
+  };
+
+  const handleSatuanChange = (e) => {
+    setSatuan(e.target.value);
+  };
+
+  const handleBelanja = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Kirim data pendaftaran ke backend
+      const response = await belanja(
+        id_jenis_bahan,
+        id_user,
+        jumlah,
+        jumlah,
+        tanggalKadaluarsa.current.value,
+        satuan,
+        lokasi_penyimpanan,
+        nama_bahan,
+        keterangan_aktivitas,
+        tanggalAktivitas.current.value
+      );
+
+      console.log(response.data); // Cetak response dari server jika perlu
+
+      // Setelah pendaftaran berhasil, navigasi ke halaman login
+      navigate(`/penyimpanan`);
+    } catch (error) {
+      console.error("Registration failed:", error);
+      // Tangani kesalahan atau tampilkan pesan ke pengguna jika diperlukan
+    }
+  };
   return (
     <div>
       <div className="kotak_login">
-        <form action="">
+        <form onSubmit={handleBelanja}>
           <input
             type="hidden"
             className="input-form"
             placeholder="Keterangan Aktivitas"
             name="keterangan"
-            value="belanja"
+            value="Belanja"
             required
           />
-          <select className="input-form" name="Jenis Makanan">
-            <option value="" disabled defaultValue hidden>
+          <select
+            className="input-form"
+            name="Jenis Makanan"
+            onChange={handleJenisBahanChange}
+            value={id_jenis_bahan}
+          >
+            <option value="" disabled defaultValue>
               Jenis Makanan
             </option>
-            <option value="">Mie</option>
+            <option value={1}>Kacang - Kacangan</option>
+            <option value={2}>Telur & Bahan Harian</option>
+            <option value={3}>Buah - Buahan</option>
+            <option value={4}>Sayur - Sayuran</option>
+            <option value={5}>Daging & Unggas</option>
+            <option value={6}>Bumbu Dapur</option>
+            <option value={7}>Tepung & Olahannya</option>
+            <option value={8}>Saos & Kecap</option>
+            <option value={9}>Makanan Kaleng</option>
           </select>
           <input
             className="input-form"
@@ -47,9 +104,11 @@ const Belanja = () => {
             placeholder="Nama Bahan"
             name="nama"
             required
+            value={nama_bahan}
+            onChange={(e) => setNama_bahan(e.target.value)}
           />
           <input
-            ref={tanggalAwalRef}
+            ref={tanggalAktivitas}
             className="input-form datepicker"
             type="text"
             placeholder="Tanggal pembelian"
@@ -57,7 +116,7 @@ const Belanja = () => {
             required
           />
           <input
-            ref={tanggalAkhirRef}
+            ref={tanggalKadaluarsa}
             className="input-form datepicker"
             type="text"
             placeholder="Tanggal kadaluarsa"
@@ -71,12 +130,24 @@ const Belanja = () => {
               placeholder="jumlah"
               name="jumlah-bahan"
               required
+              value={jumlah === 0 ? "" : jumlah}
+              onChange={(e) =>
+                setJumlah(e.target.value === "" ? 0 : Number(e.target.value))
+              }
             />
-            <select className="input-right" name="type-makanan">
-              <option value="">Pcs</option>
-              <option value="">Kg</option>
-              <option value="">Buah</option>
-              <option value="">Liter</option>
+            <select
+              className="input-right"
+              name="type-makanan"
+              onChange={handleSatuanChange}
+              value={satuan}
+            >
+              <option value="" disabled defaultValue>
+                Satuan
+              </option>
+              <option value="pcs">Pcs</option>
+              <option value="kg">Kg</option>
+              <option value="buah">Buah</option>
+              <option value="liter">Liter</option>
             </select>
           </div>
           <input
@@ -85,6 +156,8 @@ const Belanja = () => {
             placeholder="Lokasi Penyimpanan"
             name="lokasi"
             required
+            value={lokasi_penyimpanan}
+            onChange={(e) => setLokasi_penyimpanan(e.target.value)}
           />
           <br />
           <button type="submit" className="btn-submit">

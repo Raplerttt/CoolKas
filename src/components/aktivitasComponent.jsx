@@ -8,9 +8,15 @@ import { useNavigate } from "react-router-dom";
 const Aktivitas = () => {
   const navigate = useNavigate();
   const tanggalAktivitas = useRef(null);
+  const tanggalExpired = useRef(null);
 
   useEffect(() => {
     $(tanggalAktivitas.current).datepicker({
+      format: "yyyy-mm-dd",
+      autoclose: true,
+      todayHighlight: true,
+    });
+    $(tanggalExpired.current).datepicker({
       format: "yyyy-mm-dd",
       autoclose: true,
       todayHighlight: true,
@@ -29,10 +35,18 @@ const Aktivitas = () => {
             <option value="Masak">Masak</option>
           </select>
           <select className="input-form" name="Jenis Makanan">
-            <option value="" disabled defaultValue hidden>
+            <option value="" disabled defaultValue>
               Jenis Makanan
             </option>
-            <option value="Mie">Mie</option>
+            <option value="1">Kacang - Kacangan</option>
+            <option value="2">Telur & Bahan Harian</option>
+            <option value="3">Buah - Buahan</option>
+            <option value="4">Sayur - Sayuran</option>
+            <option value="5">Daging & Unggas</option>
+            <option value="6">Bumbu Dapur</option>
+            <option value="7">Tepung & Olahannya</option>
+            <option value="8">Saos & Kecap</option>
+            <option value="9">Makanan Kaleng</option>
           </select>
           <input
             className="input-form"
@@ -48,6 +62,14 @@ const Aktivitas = () => {
             type="text"
             placeholder="Tanggal Aktivitas"
             name="tanggal-Aktivitas"
+            required
+          />
+          <input
+            ref={tanggalExpired}
+            className="input-form datepicker"
+            type="text"
+            placeholder="Tanggal Kadaluarsa"
+            name="tanggal-kadaluarsa"
             required
           />
           <input

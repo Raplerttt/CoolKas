@@ -33,9 +33,11 @@
 
 .penyimpanan-card {
   flex-direction: row;
+  min-width: 200px;
+  min-height: 202px;
 }
 
-.penyimpanan-card h5{
+.penyimpanan-card h5 {
   font-size: 18px;
 }
 
@@ -48,14 +50,14 @@
   color: white;
 }
 
-.log-tittle h1{
+.log-tittle h1 {
   margin-bottom: 20px;
   color: #414535;
   font-weight: 700;
 }
 
 .log-aktivitas {
-  background: #C19875;
+  background: #c19875;
   width: 100%;
   padding: 3px;
   align-items: center;
@@ -65,7 +67,7 @@
 .log-aktivitas td {
   border: 1px solid #ddd;
   color: #fff;
-  background: #C19875;
+  background: #cfac8c;
   padding: 8px 15px;
   text-align: left;
 }
@@ -106,14 +108,29 @@
   padding-bottom: 80px;
 }
 
-@media screen and (max-width: 500px){
-  .log-tittle h1{
-    font-size: 40px !important; 
+@media screen and (max-width: 1200px) {
+  .penyimpanan-card {
+    min-height: 220px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .penyimpanan-card {
+    min-height: 200px;
   }
 }
 
-@media screen and (max-width: 400px){
-  .log-tittle h1{
-    font-size: 30px !important; 
+@media screen and (max-width: 500px) {
+  .log-tittle h1 {
+    font-size: 40px !important;
+  }
+
+  .penyimpanan-card {
+    min-height: 200px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .log-tittle h1 {
+    font-size: 30px !important;
   }
 }

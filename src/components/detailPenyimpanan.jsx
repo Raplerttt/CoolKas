@@ -1,235 +1,109 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../style/penyimpanan.css";
 import { useNavigate } from "react-router-dom";
+import { getBahan } from "../utils/api";
+import { useParams } from "react-router-dom";
 const DetailPenyimpanan = () => {
   const navigate = useNavigate();
+  const [listBahan, setListBahan] = useState([]);
+  const [id_user, setId_user] = useState(1);
+  const { id } = useParams();
+  const idJenis = parseInt(id, 10);
+
+  useEffect(() => {
+    console.log(id, idJenis, id_user);
+    // Fungsi untuk mendapatkan data jenis bahan
+    const fetchLishBahan = async () => {
+      try {
+        const result = await getBahan(idJenis, id_user);
+        setListBahan(result);
+      } catch (error) {
+        console.error("Error fetching jenis bahan:", error);
+      }
+    };
+
+    // Panggil kedua fungsi saat komponen dimuat pertama kali
+    fetchLishBahan();
+  }, [id_user, idJenis]);
+  const isExpired = (tanggalExpired) => {
+    const expiredDate = new Date(tanggalExpired);
+    const currentDate = new Date();
+
+    return expiredDate < currentDate;
+  };
+
   const handleKelola = () => {
     navigate("/aktivitas");
     // Implement edit functionality
     console.log("Edit Akun");
   };
+  const handleHapus = () => {
+    navigate("/aktivitas");
+    // Implement edit functionality
+    console.log("Edit Akun");
+  };
+
+  // Pemanggilan chunkArray dipindahkan ke dalam fungsi komponen
+  function chunkArray(arr, size) {
+    return arr.reduce((chunks, el, i) => {
+      if (i % size === 0) {
+        chunks.push([el]);
+      } else {
+        chunks[chunks.length - 1].push(el);
+      }
+      return chunks;
+    }, []);
+  }
+
+  // Pemanggilan chunkArray dihitung di sini
+  const chunkedBahan = chunkArray(listBahan, 3);
 
   return (
     <div className="mx-5 text-center">
       <h1 className="fw-bold color-soft-dark-brown penyimpanan-judul shadow-small penyimpanan-shadow-small my-4">
-        Nama Bahan Makanan
+        Stok Bahan Makanan
       </h1>
 
       <div className="card color-soft-blue px-5 py-3 mb-5 ">
         <div className="card-body">
-          <div className="row ">
-            <div className="col ">
-              <div className="card mt-3 card-kadaluarsa rounded-4">
-                <div className="card-body text-start mt-2">
-                  <h5 className="fw-bold">Nama Bahan Makanan</h5>
-                  <p className="lh-sm">
-                    Jumlah : 0 pcs <br />
-                    Kadaluarsa : 0 Hari <br />
-                    Lokasi Penyimpanan : Kulkas
-                  </p>
-                  <div className=" button-container d-flex justify-content-end mt-4">
-                    <button
-                      className="btn btn-soft-brown btn-kelola text-light fw-bold me-2"
-                      onClick={handleKelola}
-                    >
-                      Kelola
-                    </button>
-                    <button className="btn btn-soft-dark-brown btn-hapuss text-light fw-bold">
-                      Hapus
-                    </button>
+          {chunkedBahan.map((chunk, rowIndex) => (
+            <div key={rowIndex} className="row my-4">
+              {chunk.map((bahan) => (
+                <div key={bahan.id} className="col">
+                  <div
+                    className={`card  ${
+                      isExpired(bahan.tanggal_expired) ? "card-kadaluarsa" : ""
+                    } mt-3 rounded-4 `}
+                  >
+                    <div className="card-body text-start mt-2">
+                      <h5 className="fw-bold">{bahan.nama_bahan}</h5>
+                      <p className="lh-sm">
+                        Jumlah : {bahan.jumlah} {bahan.satuan} <br />
+                        Kadaluarsa :{" "}
+                        {new Date(bahan.tanggal_expired).toLocaleDateString()}
+                        <br />
+                        Lokasi Penyimpanan : {bahan.lokasi_penyimpanan}
+                      </p>
+                      <div className="button-container d-flex justify-content-end mt-4">
+                        <button
+                          className="btn btn-soft-brown btn-kelola text-light fw-bold me-2"
+                          onClick={() => handleKelola(bahan.id)}
+                        >
+                          Kelola
+                        </button>
+                        <button
+                          className="btn btn-soft-dark-brown btn-hapuss text-light fw-bold"
+                          onClick={() => handleHapus(bahan.id)}
+                        >
+                          Hapus
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
-            <div className="col ">
-              <div className="card penyimpanan-card mt-3 rounded-4">
-                <div className="card-body text-start mt-2">
-                  <h5 className="fw-bold">Nama Bahan Makanan</h5>
-                  <p className="lh-sm">
-                    Jumlah : 0 pcs <br />
-                    Kadaluarsa : 0 Hari <br />
-                    Lokasi Penyimpanan : Kulkas
-                  </p>
-                  <div className="button-container d-flex justify-content-end mt-4">
-                    <button
-                      className="btn btn-soft-brown btn-kelola text-light fw-bold me-2"
-                      onClick={handleKelola}
-                    >
-                      Kelola
-                    </button>
-                    <button className="btn btn-soft-dark-brown btn-hapuss text-light fw-bold">
-                      Hapus
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col ">
-              <div className="card penyimpanan-card mt-3 rounded-4">
-                <div className="card-body text-start mt-2">
-                  <h5 className="fw-bold">Nama Bahan Makanan</h5>
-                  <p className="lh-sm">
-                    Jumlah : 0 pcs <br />
-                    Kadaluarsa : 0 Hari <br />
-                    Lokasi Penyimpanan : Kulkas
-                  </p>
-                  <div className="button-container d-flex justify-content-end mt-4">
-                    <button
-                      className="btn btn-soft-brown btn-kelola text-light fw-bold me-2"
-                      onClick={handleKelola}
-                    >
-                      Kelola
-                    </button>
-                    <button className="btn btn-soft-dark-brown btn-hapuss text-light fw-bold">
-                      Hapus
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row my-4">
-            <div className="col ">
-              <div className="card penyimpanan-card mt-3 rounded-4">
-                <div className="card-body text-start mt-2">
-                  <h5 className="fw-bold">Nama Bahan Makanan</h5>
-                  <p className="lh-sm">
-                    Jumlah : 0 pcs <br />
-                    Kadaluarsa : 0 Hari <br />
-                    Lokasi Penyimpanan : Kulkas
-                  </p>
-                  <div className="button-container d-flex justify-content-end mt-4">
-                    <button
-                      className="btn btn-soft-brown btn-kelola text-light fw-bold me-2"
-                      onClick={handleKelola}
-                    >
-                      Kelola
-                    </button>
-                    <button className="btn btn-soft-dark-brown btn-hapuss text-light fw-bold">
-                      Hapus
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col ">
-              <div className="card penyimpanan-card mt-3 rounded-4">
-                <div className="card-body text-start mt-2">
-                  <h5 className="fw-bold">Nama Bahan Makanan</h5>
-                  <p className="lh-sm">
-                    Jumlah : 0 pcs <br />
-                    Kadaluarsa : 0 Hari <br />
-                    Lokasi Penyimpanan : Kulkas
-                  </p>
-                  <div className="button-container d-flex justify-content-end mt-4">
-                    <button
-                      className="btn btn-soft-brown btn-kelola text-light fw-bold me-2"
-                      onClick={handleKelola}
-                    >
-                      Kelola
-                    </button>
-                    <button className="btn btn-soft-dark-brown btn-hapuss text-light fw-bold">
-                      Hapus
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col ">
-              <div className="card penyimpanan-card mt-3 rounded-4">
-                <div className="card-body text-start mt-2">
-                  <h5 className="fw-bold">Nama Bahan Makanan</h5>
-                  <p className="lh-sm">
-                    Jumlah : 0 pcs <br />
-                    Kadaluarsa : 0 Hari <br />
-                    Lokasi Penyimpanan : Kulkas
-                  </p>
-                  <div className="button-container d-flex justify-content-end mt-4">
-                    <button
-                      className="btn btn-soft-brown btn-kelola text-light fw-bold me-2"
-                      onClick={handleKelola}
-                    >
-                      Kelola
-                    </button>
-                    <button className="btn btn-soft-dark-brown btn-hapuss text-light fw-bold">
-                      Hapus
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row my-4">
-            <div className="col ">
-              <div className="card penyimpanan-card mt-3 rounded-4">
-                <div className="card-body text-start mt-2">
-                  <h5 className="fw-bold">Nama Bahan Makanan</h5>
-                  <p className="lh-sm">
-                    Jumlah : 0 pcs <br />
-                    Kadaluarsa : 0 Hari <br />
-                    Lokasi Penyimpanan : Kulkas
-                  </p>
-                  <div className="button-container d-flex justify-content-end mt-4">
-                    <button
-                      className="btn btn-soft-brown btn-kelola text-light fw-bold me-2"
-                      onClick={handleKelola}
-                    >
-                      Kelola
-                    </button>
-                    <button className="btn btn-soft-dark-brown btn-hapuss text-light fw-bold">
-                      Hapus
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col ">
-              <div className="card penyimpanan-card mt-3 rounded-4">
-                <div className="card-body text-start mt-2">
-                  <h5 className="fw-bold">Nama Bahan Makanan</h5>
-                  <p className="lh-sm">
-                    Jumlah : 0 pcs <br />
-                    Kadaluarsa : 0 Hari <br />
-                    Lokasi Penyimpanan : Kulkas
-                  </p>
-                  <div className="button-container d-flex justify-content-end mt-4">
-                    <button
-                      className="btn btn-soft-brown btn-kelola text-light fw-bold me-2"
-                      onClick={handleKelola}
-                    >
-                      Kelola
-                    </button>
-                    <button className="btn btn-soft-dark-brown btn-hapuss text-light fw-bold">
-                      Hapus
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col ">
-              <div className="card penyimpanan-card mt-3 rounded-4">
-                <div className="card-body text-start mt-2">
-                  <h5 className="fw-bold">Nama Bahan Makanan</h5>
-                  <p className="lh-sm">
-                    Jumlah : 0 pcs <br />
-                    Kadaluarsa : 0 Hari <br />
-                    Lokasi Penyimpanan : Kulkas
-                  </p>
-                  <div className="button-container d-flex justify-content-end mt-4">
-                    <button
-                      className="btn btn-soft-brown btn-kelola text-light fw-bold me-2"
-                      onClick={handleKelola}
-                    >
-                      Kelola
-                    </button>
-                    <button className="btn btn-soft-dark-brown btn-hapuss text-light fw-bold">
-                      Hapus
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

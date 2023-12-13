@@ -1,8 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../style/penyimpanan.css";
 import { useNavigate } from "react-router-dom";
+import { getJenisBahan, getLogAktivitas } from "../utils/api";
 const Penyimpanan = () => {
   const navigate = useNavigate();
+  const [listJenis, setListJenis] = useState([]);
+  const [logAktivitas, setLogAktivitas] = useState([]);
+  const [id_user, setId_user] = useState(1);
+
+  useEffect(() => {
+    // Fungsi untuk mendapatkan data jenis bahan
+    const fetchListJenis = async () => {
+      try {
+        const result = await getJenisBahan(id_user);
+        setListJenis(result);
+      } catch (error) {
+        console.error("Error fetching jenis bahan:", error);
+      }
+    };
+
+    // Fungsi untuk mendapatkan data log aktivitas
+    const fetchLogAktivitas = async () => {
+      try {
+        const aktivitas = await getLogAktivitas(id_user);
+        setLogAktivitas(aktivitas);
+      } catch (error) {
+        console.error("Error fetching log aktivitas:", error);
+      }
+    };
+
+    // Panggil kedua fungsi saat komponen dimuat pertama kali
+    fetchListJenis();
+    fetchLogAktivitas();
+  }, [id_user]);
+
+  // Pemanggilan chunkArray dipindahkan ke dalam fungsi komponen
+  function chunkArray(arr, size) {
+    return arr.reduce((chunks, el, i) => {
+      if (i % size === 0) {
+        chunks.push([el]);
+      } else {
+        chunks[chunks.length - 1].push(el);
+      }
+      return chunks;
+    }, []);
+  }
+
+  // Pemanggilan chunkArray dihitung di sini
+  const chunkedJenis = chunkArray(listJenis, 3);
   return (
     <div className="mx-5 text-center">
       <h1 className="fw-bold color-soft-dark-brown penyimpanan-judul shadow-small my-4 mt-5">
@@ -11,219 +56,38 @@ const Penyimpanan = () => {
 
       <div className="card penyimpanan-card color-soft-blue p-2 mb-5">
         <div className="card-body">
-          <div className="row ">
-            <div className="col ">
-              <div className="card penyimpanan-card mt-3 rounded-4">
-                <img
-                  src="assets/penyimpanan_kacang.jpg"
-                  className="card-img-top img-fluid object-fit-cover rounded-start-4 rounded-end-0"
-                  alt="Kacang-kacangan"
-                />
-                <div className="card-body text-start">
-                  <h5 className="fw-bold">Kacang-Kacangan</h5>
-                  <p className="lh-sm text-small-penyimpanan">
-                    Kamu mempunyai <b>0</b> macam makanan di jenis makanan ini.
-                  </p>
-                  <div className="d-flex justify-content-center">
-                    <a
-                      href="/detailPenyimpanan/1"
-                      className="btn btn-soft-brown btn-kelola text-light fw-bold px-4"
-                    >
-                      Lihat Bahan
-                    </a>
+          {chunkedJenis.map((chunk, rowIndex) => (
+            <div key={rowIndex} className="row my-4">
+              {chunk.map((jenis) => (
+                <div key={jenis.id} className="col">
+                  <div className="card penyimpanan-card mt-3 rounded-4">
+                    <img
+                      src={`assets/penyimpanan_${jenis.id}.jpg`}
+                      className="card-img-top img-fluid object-fit-cover rounded-start-4 rounded-end-0"
+                      alt={jenis.nama_jenis_bahan}
+                    />
+                    <div className="card-body text-start">
+                      <h5 className="fw-bold">{jenis.nama_jenis_bahan}</h5>
+                      <p className="lh-sm text-small-penyimpanan">
+                        Kamu mempunyai <b>{jenis.jumlah_bahan}</b> macam makanan
+                        di jenis makanan ini.
+                      </p>
+                      {jenis.jumlah_bahan > 0 && (
+                        <div className="d-flex justify-content-center">
+                          <a
+                            href={`/detailPenyimpanan/${jenis.id}`}
+                            className="btn btn-soft-brown btn-kelola text-light fw-bold px-4"
+                          >
+                            Lihat Stok
+                          </a>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
-            <div className="col ">
-              <div className="card penyimpanan-card mt-3 rounded-4">
-                <img
-                  src="assets/penyimpanan_telur.jpg"
-                  className="card-img-top img-fluid object-fit-cover rounded-start-4 rounded-end-0"
-                  alt="Telur & Bahan Harian"
-                />
-                <div className="card-body text-start">
-                  <h5 className="fw-bold">Telur & Bahan Harian</h5>
-                  <p className="lh-sm text-small-penyimpanan">
-                    Kamu mempunyai <b>0</b> macam makanan di jenis makanan ini.
-                  </p>
-                  <div className="d-flex justify-content-center">
-                    <a
-                      href="/detailPenyimpanan/1"
-                      className="btn btn-soft-brown btn-kelola text-light fw-bold px-4"
-                    >
-                      Lihat Bahan
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col ">
-              <div className="card penyimpanan-card mt-3 rounded-4">
-                <img
-                  src="assets/penyimpanan_buah.jpg"
-                  className="card-img-top img-fluid object-fit-cover rounded-start-4 rounded-end-0"
-                  alt="Buah-Buahan"
-                />
-                <div className="card-body text-start">
-                  <h5 className="fw-bold">Buah-Buahan</h5>
-                  <p className="lh-sm text-small-penyimpanan">
-                    Kamu mempunyai <b>0</b> macam makanan di jenis makanan ini.
-                  </p>
-                  <div className="d-flex justify-content-center">
-                    <a
-                      href="/detailPenyimpanan/1"
-                      className="btn btn-soft-brown btn-kelola text-light fw-bold px-4"
-                    >
-                      Lihat Bahan
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row my-4">
-            <div className="col ">
-              <div className="card penyimpanan-card mt-3 rounded-4">
-                <img
-                  src="assets/penyimpanan_sayur.jpg"
-                  className="card-img-top img-fluid object-fit-cover rounded-start-4 rounded-end-0"
-                  alt="Sayur-Sayuran"
-                />
-                <div className="card-body text-start">
-                  <h5 className="fw-bold">Sayur-Sayuran</h5>
-                  <p className="lh-sm text-small-penyimpanan">
-                    Kamu mempunyai <b>0</b> macam makanan di jenis makanan ini.
-                  </p>
-                  <div className="d-flex justify-content-center">
-                    <a
-                      href="/detailPenyimpanan/3"
-                      className="btn btn-soft-brown btn-kelola text-light fw-bold px-4"
-                    >
-                      Lihat Bahan
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col ">
-              <div className="card penyimpanan-card mt-3 rounded-4">
-                <img
-                  src="assets/penyimpanan_daging_unggas.jpg"
-                  className="card-img-top img-fluid object-fit-cover rounded-start-4 rounded-end-0"
-                  alt="Daging & Unggas"
-                />
-                <div className="card-body text-start">
-                  <h5 className="fw-bold">Daging & Unggas</h5>
-                  <p className="lh-sm text-small-penyimpanan">
-                    Kamu mempunyai <b>0</b> macam makanan di jenis makanan ini.
-                  </p>
-                  <div className="d-flex justify-content-center">
-                    <a
-                      href="/detailPenyimpanan/4"
-                      className="btn btn-soft-brown btn-kelola text-light fw-bold px-4"
-                    >
-                      Lihat Bahan
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col ">
-              <div className="card penyimpanan-card mt-3 rounded-4">
-                <img
-                  src="assets/penyimpanan_bumbu_dapur.jpg"
-                  className="card-img-top img-fluid object-fit-cover rounded-start-4 rounded-end-0"
-                  alt="Bumbu Dapur"
-                />
-                <div className="card-body text-start">
-                  <h5 className="fw-bold">Bumbu Dapur</h5>
-                  <p className="lh-sm text-small-penyimpanan">
-                    Kamu mempunyai <b>0</b> macam makanan di jenis makanan ini.
-                  </p>
-                  <div className="d-flex justify-content-center">
-                    <a
-                      href="/detailPenyimpanan/5"
-                      className="btn btn-soft-brown btn-kelola text-light fw-bold px-4"
-                    >
-                      Lihat Bahan
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row my-4">
-            <div className="col ">
-              <div className="card penyimpanan-card mt-3 rounded-4">
-                <img
-                  src="assets/penyimpanan_tepung.jpg"
-                  className="card-img-top img-fluid object-fit-cover rounded-start-4 rounded-end-0"
-                  alt="Tepung & Olahannya"
-                />
-                <div className="card-body text-start">
-                  <h5 className="fw-bold">Tepung & Olahannya</h5>
-                  <p className="lh-sm text-small-penyimpanan">
-                    Kamu mempunyai <b>0</b> macam makanan di jenis makanan ini.
-                  </p>
-                  <div className="d-flex justify-content-center">
-                    <a
-                      href="/detailPenyimpanan/6"
-                      className="btn btn-soft-brown btn-kelola text-light fw-bold px-4"
-                    >
-                      Lihat Bahan
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col ">
-              <div className="card penyimpanan-card mt-3 rounded-4">
-                <img
-                  src="assets/penyimpanan_saos.jpg"
-                  className="card-img-top img-fluid object-fit-cover rounded-start-4 rounded-end-0"
-                  alt="Saos & Kecap"
-                />
-                <div className="card-body text-start">
-                  <h5 className="fw-bold">Saos & Kecap</h5>
-                  <p className="lh-sm text-small-penyimpanan">
-                    Kamu mempunyai <b>0</b> macam makanan di jenis makanan ini.
-                  </p>
-                  <div className="d-flex justify-content-center">
-                    <a
-                      href="/detailPenyimpanan/7"
-                      className="btn btn-soft-brown btn-kelola text-light fw-bold px-4"
-                    >
-                      Lihat Bahan
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col ">
-              <div className="card penyimpanan-card mt-3 rounded-4">
-                <img
-                  src="assets/penyimpanan_kaleng.jpg"
-                  className="card-img-top img-fluid object-fit-cover rounded-start-4 rounded-end-0"
-                  alt="Makanan Kaleng"
-                />
-                <div className="card-body text-start">
-                  <h5 className="fw-bold">Makanan Kaleng</h5>
-                  <p className="lh-sm text-small-penyimpanan">
-                    Kamu mempunyai <b>0</b> macam makanan di jenis makanan ini.
-                  </p>
-                  <div className="d-flex justify-content-center">
-                    <a
-                      href="/detailPenyimpanan/8"
-                      className="btn btn-soft-brown btn-kelola text-light fw-bold px-4"
-                    >
-                      Lihat Bahan
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
       <div className="container-log">
@@ -243,50 +107,18 @@ const Penyimpanan = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>01/01/2024</td>
-                <td>masak</td>
-                <td>Telur</td>
-                <td>Telur & Bahan Harian</td>
-                <td>2 kg</td>
-              </tr>
-
-              <tr>
-                <td>2</td>
-                <td>01/01/2024</td>
-                <td>masak</td>
-                <td>Telur</td>
-                <td>Telur & Bahan Harian</td>
-                <td>2 kg</td>
-              </tr>
-
-              <tr>
-                <td>3</td>
-                <td>01/01/2024</td>
-                <td>masak</td>
-                <td>Telur</td>
-                <td>Telur & Bahan Harian</td>
-                <td>2 kg</td>
-              </tr>
-
-              <tr>
-                <td>4</td>
-                <td>01/01/2024</td>
-                <td>masak</td>
-                <td>Telur</td>
-                <td>Telur & Bahan Harian</td>
-                <td>2 kg</td>
-              </tr>
-
-              <tr>
-                <td>5</td>
-                <td>01/01/2024</td>
-                <td>masak</td>
-                <td>Telur</td>
-                <td>Telur & Bahan Harian</td>
-                <td>2 kg</td>
-              </tr>
+              {logAktivitas.map((aktivitas, index) => (
+                <tr key={aktivitas.id}>
+                  <td>{index + 1}</td>
+                  <td>
+                    {new Date(aktivitas.tanggal_aktivitas).toLocaleDateString()}
+                  </td>
+                  <td>{aktivitas.keterangan_aktivitas}</td>
+                  <td>{aktivitas.nama_bahan}</td>
+                  <td>{aktivitas.nama_jenis_bahan}</td>
+                  <td>{`${aktivitas.jumlah_bahan} ${aktivitas.satuan}`}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

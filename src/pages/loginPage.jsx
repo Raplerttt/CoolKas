@@ -18,7 +18,7 @@ const LoginPage = () => {
         username,
         password,
       });
-      window.alert("Berhasil Login");
+
       // Di sini Anda dapat menanggapi respons dari backend sesuai kebutuhan aplikasi Anda
       console.log("Login successful:", response.data);
 
