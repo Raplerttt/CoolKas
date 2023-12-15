@@ -1,35 +1,68 @@
-// user/userModel.js
+// user.model.js
 
-const mysql = require('mysql2/promise');
-const dbConfig = require('../../config');
-
+const mysql = require("mysql2/promise");
+const dbConfig = require("../../config");
 const pool = mysql.createPool(dbConfig);
 
-async function createUser(user) {
-  const { nama_lengkap, email, username, password, } = user;
-  const [result] = await pool.execute(
-    'INSERT INTO users (nama_lengkap, email, username, password) VALUES (?, ?, ?, ?)',
-    [nama_lengkap, email, username, password]
-  );
-  return result.insertId;
-}
+const userModel = {
+  getUserByUsername: async (username) => {
+    try {
+      const [rows] = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
+      return rows;
+    } catch (error) {
+      throw error;
+    }
+  },
 
-async function getUserByUsername(username) {
-  const [rows] = await pool.execute('SELECT * FROM users WHERE username = ?', [username]);
-  return rows.length > 0 ? rows[0] : null;
-}
+  addUser: async (userData) => {
+    const { nama_lengkap, email, username, password } = userData;
+    try {
+      const query = 'INSERT INTO users (nama_lengkap, email, username, password) VALUES (?, ?, ?, ?)';
+      const [result] = await pool.query(query, [nama_lengkap, email, username, password]);
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  },
 
-async function updateUser(userId, updatedUser) {
-  const { nama_lengkap, email, username, password, photo } = updatedUser;
-  const [result] = await pool.execute(
-    'UPDATE users SET nama_lengkap=?, email=?, username=?, password=?, photo=? WHERE id=?',
-    [nama_lengkap, email, username, password, photo, userId]
-  );
-  return result.affectedRows > 0;
-}
+  checkUsername: async (username) => {
+    try {
+      const [rows] = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
+      return rows;
+    } catch (error) {
+      throw error;
+    }
+  },
 
-module.exports = {
-  createUser,
-  getUserByUsername,
-  updateUser,
+  checkEmail: async (email) => {
+    try {
+      const [rows] = await pool.query('SELECT * FROM users WHERE email = ?', [email]);
+      return rows;
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  getUserInfo: async (username) => {
+    try {
+      const query = 'SELECT nama_lengkap AS namaLengkap, email, username FROM users WHERE username = ?';
+      const [rows] = await pool.query(query, [username]);
+      return rows;
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  updateUserInfo: async (userData) => {
+    const { namaLengkap, email, newPassword, username } = userData;
+    try {
+      const query = 'UPDATE users SET nama_lengkap = ?, email = ?, password = ? WHERE username = ?';
+      const [result] = await pool.query(query, [namaLengkap, email, newPassword, username]);
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  },
 };
+
+module.exports = userModel;

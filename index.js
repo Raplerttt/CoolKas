@@ -12,8 +12,8 @@ app.use(cors());
 // middleware
 app.use(bodyParser.json());
 app.use("/", userRoutes);
-app.use("/", modulRoutes);
-app.use("/", penyimpananRoutes);
+app.use("/modul", modulRoutes);
+app.use("/penyimpanan", penyimpananRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
