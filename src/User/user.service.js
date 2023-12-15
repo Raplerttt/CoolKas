@@ -1,6 +1,6 @@
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const userModel = require('./user.model');
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const userModel = require("./user.model");
 
 const userService = {
   loginUser: async (username, password) => {
@@ -12,16 +12,26 @@ const userService = {
         const isPasswordValid = await bcrypt.compare(password, user.password);
 
         if (isPasswordValid) {
-          const token = jwt.sign({ username: user.username }, process.env.JWT_SECRET || 'default_secret_key', {
-            expiresIn: '1h',
-          });
+          const token = jwt.sign(
+            { username: user.username },
+            process.env.JWT_SECRET || "default_secret_key",
+            {
+              expiresIn: "1h",
+            }
+          );
 
-          return { success: true, message: 'Login successful', token };
+          return { success: true, message: "Login successful", token };
         } else {
-          return { success: false, message: 'Authentication failed. Password incorrect.' };
+          return {
+            success: false,
+            message: "Authentication failed. Password incorrect.",
+          };
         }
       } else {
-        return { success: false, message: 'Authentication failed. User not found.' };
+        return {
+          success: false,
+          message: "Authentication failed. User not found.",
+        };
       }
     } catch (error) {
       throw error;
@@ -35,23 +45,34 @@ const userService = {
       const usernameResult = await userModel.checkUsername(username);
 
       if (usernameResult.length > 0) {
-        return { success: false, message: 'Registration failed. Username is already taken.' };
+        return {
+          success: false,
+          message: "Registration failed. Username is already taken.",
+        };
       }
 
       const emailResult = await userModel.checkEmail(email);
 
       if (emailResult.length > 0) {
-        return { success: false, message: 'Registration failed. Email is already taken.' };
+        return {
+          success: false,
+          message: "Registration failed. Email is already taken.",
+        };
       }
 
       const hashedPassword = await bcrypt.hash(password, 10);
 
-      const addUserResult = await userModel.addUser({ nama_lengkap, email, username, password: hashedPassword });
+      const addUserResult = await userModel.addUser({
+        nama_lengkap,
+        email,
+        username,
+        password: hashedPassword,
+      });
 
       if (addUserResult.affectedRows > 0) {
-        return { success: true, message: 'Registration successful' };
+        return { success: true, message: "Registration successful" };
       } else {
-        return { success: false, message: 'Registration failed' };
+        return { success: false, message: "Registration failed" };
       }
     } catch (error) {
       throw error;
@@ -72,12 +93,20 @@ const userService = {
     const hashedNewPassword = await bcrypt.hash(newPassword, 10);
 
     try {
-      const updateResult = await userModel.updateUserInfo({ namaLengkap, email, newPassword: hashedNewPassword, username });
+      const updateResult = await userModel.updateUserInfo({
+        namaLengkap,
+        email,
+        newPassword: hashedNewPassword,
+        username,
+      });
 
       if (updateResult.affectedRows > 0) {
-        return { success: true, message: 'User information updated successfully' };
+        return {
+          success: true,
+          message: "User information updated successfully",
+        };
       } else {
-        return { success: false, message: 'Failed to update user information' };
+        return { success: false, message: "Failed to update user information" };
       }
     } catch (error) {
       throw error;
