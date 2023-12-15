@@ -24,7 +24,7 @@ const DetailPenyimpanan = () => {
 
     // Panggil kedua fungsi saat komponen dimuat pertama kali
     fetchLishBahan();
-  }, [id_user]);
+  }, [id_user, idJenis]);
   const isExpired = (tanggalExpired) => {
     const expiredDate = new Date(tanggalExpired);
     const currentDate = new Date();
