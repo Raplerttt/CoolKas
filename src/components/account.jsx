@@ -63,19 +63,19 @@ const Account = () => {
           alt=""
         />
       </div>
-      <table className="table">
+      <table className="table table-responsive">
         <tbody>
           <tr>
-            <td>Nama Lengkap:</td>
-            <td>{accountInfo.namaLengkap}</td>
+            <td className="heads">Nama Lengkap:</td>
+            <td className="tails">{accountInfo.namaLengkap}</td>
           </tr>
           <tr>
-            <td>Email:</td>
-            <td>{accountInfo.email}</td>
+            <td className="heads">Email:</td>
+            <td className="tails">{accountInfo.email}</td>
           </tr>
           <tr>
-            <td>Username:</td>
-            <td>{accountInfo.username}</td>
+            <td className="heads">Username:</td>
+            <td className="tails">{accountInfo.username}</td>
           </tr>
         </tbody>
       </table>
