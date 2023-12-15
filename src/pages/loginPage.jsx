@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import axios from '../utils/axios'; // Pastikan untuk menginstal axios dengan npm install axios
-import '../style/login.css';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import axios from "../utils/axios"; // Pastikan untuk menginstal axios dengan npm install axios
+import "../style/login.css";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
@@ -15,20 +15,20 @@ const LoginPage = () => {
 
     try {
       // Mengirim data login ke backend
-      console.log('Sending login request with data:', { username, password });
-      const response = await axios.post('/login', {
+      console.log("Sending login request with data:", { username, password });
+      const response = await axios.post("/login", {
         username: username,
         password: password,
       });
       // Jika login berhasil, Anda dapat menyimpan token ke local storage atau mengambil tindakan lain yang diperlukan
       const token = response.data.token;
-      localStorage.setItem(`username`, token);
+      localStorage.setItem(`userId`, token);
 
       // Redirect atau lakukan tindakan lain sesuai kebutuhan
-      navigate('/akun');
+      navigate("/akun");
     } catch (err) {
       // Jika login gagal, tampilkan pesan kesalahan
-      setError('Login failed. Please check your username and password.');
+      setError("Login failed. Please check your username and password.");
     }
   };
 

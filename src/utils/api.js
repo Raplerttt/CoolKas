@@ -43,17 +43,19 @@ export const register = async (nama_lengkap, username, email, password) => {
 };
 
 export const getModuls = async () => {
-  const moduls = await axios.get(`${baseUrlDB}/moduls`);
+  const moduls = await axios.get(`${baseUrlDB}/modul/moduls`);
   // console.log(moduls.data);
   return moduls.data;
 };
 export const getDetailModul = async (id) => {
-  const modul = await axios.get(`${baseUrlDB}/moduls/${id}`);
+  const modul = await axios.get(`${baseUrlDB}/modul/moduls/${id}`);
   return modul.data;
 };
 
 export const getJenisBahan = async (userId) => {
-  const listJenis = await axios.get(`${baseUrlDB}/jenisBahan/${userId}`);
+  const listJenis = await axios.get(
+    `${baseUrlDB}/penyimpanan/jenisBahan/${userId}`
+  );
   // console.log(listJenis.data);
   return listJenis.data;
 };
@@ -70,7 +72,7 @@ export const belanja = async (
   keterangan_aktivitas,
   tanggal_aktivitas
 ) => {
-  const response = await axios.post(`${baseUrlDB}/belanja`, {
+  const response = await axios.post(`${baseUrlDB}/penyimpanan/belanja`, {
     id_jenis_bahan,
     id_user,
     jumlah,
@@ -86,18 +88,24 @@ export const belanja = async (
 };
 
 export const getLogAktivitas = async (userId) => {
-  const aktivitas = await axios.get(`${baseUrlDB}/logAktivitas/${userId}`);
+  const aktivitas = await axios.get(
+    `${baseUrlDB}/penyimpanan/logAktivitas/${userId}`
+  );
   // console.log(aktivitas.data);
   return aktivitas.data;
 };
 export const getBahan = async (jenisId, userId) => {
-  const bahan = await axios.get(`${baseUrlDB}/listBahan/${jenisId}/${userId}`);
+  const bahan = await axios.get(
+    `${baseUrlDB}/penyimpanan/listBahan/${jenisId}/${userId}`
+  );
   // console.log(bahan.data);
   return bahan.data;
 };
 
 export const deleteBahan = async (bahanId) => {
-  const response = await axios.delete(`${baseUrlDB}/deleteBahan/${bahanId}`);
+  const response = await axios.delete(
+    `${baseUrlDB}/penyimpanan/deleteBahan/${bahanId}`
+  );
   // console.log(aktivitas.data);
   return response.data;
 };
