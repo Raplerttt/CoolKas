@@ -6,32 +6,26 @@ const Penyimpanan = () => {
   const navigate = useNavigate();
   const [listJenis, setListJenis] = useState([]);
   const [logAktivitas, setLogAktivitas] = useState([]);
-  const [id_user, setId_user] = useState(1);
+
+  const storedUserId = localStorage.getItem("userId");
+  const id_user = parseInt(storedUserId, 10);
 
   useEffect(() => {
     // Fungsi untuk mendapatkan data jenis bahan
-    const fetchListJenis = async () => {
+    const fetchData = async () => {
       try {
         const result = await getJenisBahan(id_user);
         setListJenis(result);
+        const aktivitas = await getLogAktivitas(id_user);
+        setLogAktivitas(aktivitas);
       } catch (error) {
         console.error("Error fetching jenis bahan:", error);
       }
     };
 
-    // Fungsi untuk mendapatkan data log aktivitas
-    const fetchLogAktivitas = async () => {
-      try {
-        const aktivitas = await getLogAktivitas(id_user);
-        setLogAktivitas(aktivitas);
-      } catch (error) {
-        console.error("Error fetching log aktivitas:", error);
-      }
-    };
-
     // Panggil kedua fungsi saat komponen dimuat pertama kali
-    fetchListJenis();
-    fetchLogAktivitas();
+    fetchData();
+    // console.log(logAktivitas);
   }, [id_user]);
 
   // Pemanggilan chunkArray dipindahkan ke dalam fungsi komponen
@@ -60,7 +54,11 @@ const Penyimpanan = () => {
             <div key={rowIndex} className="row my-4">
               {chunk.map((jenis) => (
                 <div key={jenis.id} className="col">
-                  <div className="card penyimpanan-card mt-3 rounded-4">
+                  <div
+                    className={`card  ${
+                      jenis.jumlah_kadaluwarsa > 0 ? "card-kadaluarsa" : ""
+                    } penyimpanan-card mt-3 rounded-4 `}
+                  >
                     <img
                       src={`assets/penyimpanan_${jenis.id}.jpg`}
                       className="card-img-top img-fluid object-fit-cover rounded-start-4 rounded-end-0"
@@ -70,8 +68,12 @@ const Penyimpanan = () => {
                       <h5 className="fw-bold">{jenis.nama_jenis_bahan}</h5>
                       <p className="lh-sm text-small-penyimpanan">
                         Kamu mempunyai <b>{jenis.jumlah_bahan}</b> macam makanan
-                        di jenis makanan ini.
+                        di jenis makanan ini. <br />
+                        {jenis.jumlah_kadaluwarsa > 0
+                          ? `Terdapat ${jenis.jumlah_kadaluwarsa} bahan kadaluwarsa`
+                          : ""}
                       </p>
+
                       {jenis.jumlah_bahan > 0 && (
                         <div className="d-flex justify-content-center">
                           <a
@@ -94,34 +96,41 @@ const Penyimpanan = () => {
         <div className="log-tittle">
           <h1>Riwayat Penyimpanan</h1>
         </div>
-        <div className="table-responsive">
-          <table className="table log-aktivitas">
-            <thead>
-              <tr>
-                <th>No.</th>
-                <th>Tanggal Aktivitas</th>
-                <th>Keterangan Aktivitas</th>
-                <th>Nama Bahan</th>
-                <th>Jenis Bahan</th>
-                <th>Jumlah</th>
-              </tr>
-            </thead>
-            <tbody>
-              {logAktivitas.map((aktivitas, index) => (
-                <tr key={aktivitas.id}>
-                  <td>{index + 1}</td>
-                  <td>
-                    {new Date(aktivitas.tanggal_aktivitas).toLocaleDateString()}
-                  </td>
-                  <td>{aktivitas.keterangan_aktivitas}</td>
-                  <td>{aktivitas.nama_bahan}</td>
-                  <td>{aktivitas.nama_jenis_bahan}</td>
-                  <td>{`${aktivitas.jumlah_bahan} ${aktivitas.satuan}`}</td>
+
+        {logAktivitas.length === 0 ? (
+          <p className="nothing-log">Anda belum mempunyai riwayat aktivitas</p>
+        ) : (
+          <div className="table-responsive">
+            <table className="table log-aktivitas">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Tanggal Aktivitas</th>
+                  <th>Keterangan Aktivitas</th>
+                  <th>Nama Bahan</th>
+                  <th>Jenis Bahan</th>
+                  <th>Jumlah</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {logAktivitas.map((aktivitas, index) => (
+                  <tr key={aktivitas.id}>
+                    <td>{index + 1}</td>
+                    <td>
+                      {new Date(
+                        aktivitas.tanggal_aktivitas
+                      ).toLocaleDateString()}
+                    </td>
+                    <td>{aktivitas.keterangan_aktivitas}</td>
+                    <td>{aktivitas.nama_bahan}</td>
+                    <td>{aktivitas.nama_jenis_bahan}</td>
+                    <td>{`${aktivitas.jumlah_bahan} ${aktivitas.satuan}`}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
       <button className="add-button" onClick={() => navigate(`/belanja`)}>
         +

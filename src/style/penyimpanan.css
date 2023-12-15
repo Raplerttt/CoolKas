@@ -27,6 +27,10 @@
   background-color: #618985;
 }
 
+.nothing-log {
+  color: #618985;
+  margin: 20px;
+}
 .penyimpanan-shadow-small {
   text-shadow: 0 1px 1px black;
 }
@@ -34,7 +38,7 @@
 .penyimpanan-card {
   flex-direction: row;
   min-width: 200px;
-  min-height: 202px;
+  min-height: 212px;
 }
 
 .penyimpanan-card h5 {
@@ -115,7 +119,7 @@
 }
 @media screen and (max-width: 800px) {
   .penyimpanan-card {
-    min-height: 200px;
+    min-height: 195px;
   }
 }
 
@@ -125,7 +129,7 @@
   }
 
   .penyimpanan-card {
-    min-height: 200px;
+    min-height: 180px;
   }
 }
 

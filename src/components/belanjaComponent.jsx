@@ -8,12 +8,13 @@ import { belanja } from "../utils/api";
 const Belanja = () => {
   const navigate = useNavigate();
   const [id_jenis_bahan, setId_jenis_bahan] = useState(1);
-  const [id_user, setId_user] = useState();
+  const storedUserId = localStorage.getItem("userId");
+  const id_user = parseInt(storedUserId, 10);
   const [jumlah, setJumlah] = useState(0);
   const [satuan, setSatuan] = useState("pcs");
   const [lokasi_penyimpanan, setLokasi_penyimpanan] = useState("");
   const [nama_bahan, setNama_bahan] = useState("");
-  const [keterangan_aktivitas, setKeterangan_aktivitas] = useState("");
+  const [keterangan_aktivitas, setKeterangan_aktivitas] = useState("Belanja");
   const tanggalAktivitas = useRef(null);
   const tanggalKadaluarsa = useRef(null);
 
@@ -28,8 +29,6 @@ const Belanja = () => {
       autoclose: true,
       todayHighlight: true,
     });
-    setKeterangan_aktivitas("Belanja");
-    setId_user(1);
   }, []);
 
   const handleJenisBahanChange = (e) => {
@@ -57,8 +56,6 @@ const Belanja = () => {
         keterangan_aktivitas,
         tanggalAktivitas.current.value
       );
-
-      console.log(response.data); // Cetak response dari server jika perlu
 
       // Setelah pendaftaran berhasil, navigasi ke halaman login
       navigate(`/penyimpanan`);
@@ -119,7 +116,7 @@ const Belanja = () => {
             ref={tanggalKadaluarsa}
             className="input-form datepicker"
             type="text"
-            placeholder="Tanggal kadaluarsa"
+            placeholder="Tanggal kadaluwarsa"
             name="tanggal-kadaluarsa"
             required
           />

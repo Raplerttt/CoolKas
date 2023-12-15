@@ -3,7 +3,7 @@ import Penyimpanan from "../components/penyimpanan";
 import Navbar from "../components/navbarComponent";
 import { Footer, AppFooter } from "../components/footer";
 
-function ContactUsPage() {
+function PenyimpananPage() {
   return (
     <div>
       <Navbar />
@@ -14,4 +14,4 @@ function ContactUsPage() {
   );
 }
 
-export default ContactUsPage;
+export default PenyimpananPage;

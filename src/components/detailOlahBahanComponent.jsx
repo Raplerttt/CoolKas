@@ -4,8 +4,9 @@ import ReactPlayer from "react-player/youtube";
 import { useParams } from "react-router-dom";
 function DetailOlahBahan() {
   const { id } = useParams();
-  const [modul, setModul] = useState([]);
   const idAsNumber = parseInt(id, 10);
+  const [modul, setModul] = useState([]);
+
   useEffect(() => {
     // Fungsi untuk mendapatkan data meals
     const fetchModul = async () => {

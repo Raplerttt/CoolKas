@@ -19,7 +19,7 @@ export const getMealList = async (category) => {
 export const getDetailMeal = async (id) => {
   const meal = await axios.get(`${baseUrlMealDB}/lookup.php?i=${id}`);
 
-  console.log(meal.data.meals);
+  // console.log(meal.data.meals);
   return meal.data.meals[0];
 };
 
@@ -82,7 +82,7 @@ export const belanja = async (
     keterangan_aktivitas,
     tanggal_aktivitas,
   });
-  return response;
+  return response.data;
 };
 
 export const getLogAktivitas = async (userId) => {
@@ -91,7 +91,41 @@ export const getLogAktivitas = async (userId) => {
   return aktivitas.data;
 };
 export const getBahan = async (jenisId, userId) => {
-  const bahan = await axios.get(`${baseUrlDB}/getBahan/${jenisId}/${userId}`);
-  console.log(bahan.data);
+  const bahan = await axios.get(`${baseUrlDB}/listBahan/${jenisId}/${userId}`);
+  // console.log(bahan.data);
   return bahan.data;
+};
+
+export const deleteBahan = async (bahanId) => {
+  const response = await axios.delete(`${baseUrlDB}/deleteBahan/${bahanId}`);
+  // console.log(aktivitas.data);
+  return response.data;
+};
+
+export const kelola = async (
+  bahanId,
+  id_jenis_bahan,
+  id_user,
+  jumlah,
+  jumlah_bahan,
+  tanggal_expired,
+  satuan,
+  lokasi_penyimpanan,
+  nama_bahan,
+  keterangan_aktivitas,
+  tanggal_aktivitas
+) => {
+  const response = await axios.put(`${baseUrlDB}/kelola/${bahanId}`, {
+    id_jenis_bahan,
+    id_user,
+    jumlah,
+    jumlah_bahan,
+    tanggal_expired,
+    satuan,
+    lokasi_penyimpanan,
+    nama_bahan,
+    keterangan_aktivitas,
+    tanggal_aktivitas,
+  });
+  return response.data;
 };

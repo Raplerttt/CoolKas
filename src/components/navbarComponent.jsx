@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../style/navbar.css";
 
-function Navbar() {
+function Navbar(userId) {
   const [navbarOpen, setNavbarOpen] = useState(false);
   // to close hamburger outside the icon
   const ref = useRef();
@@ -21,7 +21,7 @@ function Navbar() {
   return (
     <header ref={ref} className="app-bar">
       <div className="app-bar__brand">
-        <a href="index.html">
+        <a href="/Dashboard">
           <img src="/assets/logo.png" className="logo" alt="Logo" />
         </a>
       </div>

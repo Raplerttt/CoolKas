@@ -16,11 +16,11 @@ function ContactUs() {
       )
       .then(
         (result) => {
-          console.log(result.text);
+          // console.log(result.text);
           window.alert("Pesan telah berhasil di kirim!");
         },
         (error) => {
-          console.log(error.text);
+          // console.log(error.text);
         }
       );
     e.target.reset();
@@ -44,6 +44,7 @@ function ContactUs() {
               className="form-control"
               placeholder="Masukan nama Anda"
               name="user_name"
+              required
             />
           </div>
           <div className="mb-3">
@@ -53,6 +54,7 @@ function ContactUs() {
               className="form-control"
               placeholder="Masukan email Anda"
               name="user_email"
+              required
             />
           </div>
 
@@ -63,6 +65,7 @@ function ContactUs() {
               rows="2"
               placeholder="Masukan pesan Anda"
               name="message"
+              required
             ></textarea>
           </div>
           <div className=" text-center">

@@ -6,7 +6,10 @@
   align-items: center;
   min-height: 100vh;
 }
-
+.error-message {
+  color: red;
+  padding-right: 20px;
+}
 .form-login {
   width: 400px;
   background-color: #ffffff;

@@ -118,7 +118,11 @@ function CarouselRecipe() {
                 <div id="seeMore" className="d-flex justify-content-center">
                   <button
                     className="btn btn-primary"
-                    onClick={() => navigate(`/modulResep/${meal.idMeal}`)}
+                    onClick={() =>
+                      navigate(`/modulResep/detail`, {
+                        state: { mealId: meal.idMeal },
+                      })
+                    }
                   >
                     Lihat
                   </button>

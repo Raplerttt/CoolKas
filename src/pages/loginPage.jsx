@@ -20,12 +20,12 @@ const LoginPage = () => {
       });
 
       // Di sini Anda dapat menanggapi respons dari backend sesuai kebutuhan aplikasi Anda
-      console.log("Login successful:", response.data);
-
+      // console.log("Login successful:", response.data);
+      // Simpan user id di Local Storage
+      localStorage.setItem("userId", response.data.user.id);
       navigate(`/Dashboard`);
     } catch (error) {
       setError("Username atau password tidak sesuai");
-      window.alert("Username atau password tidak sesuai");
       // Tindakan lain yang ingin Anda lakukan jika login gagal
     }
   };
@@ -68,16 +68,17 @@ const LoginPage = () => {
           </div>
 
           <div className="btn-group-login">
+            {error && (
+              <div className="error-message small-text">
+                <p>{error}</p>
+              </div>
+            )}
             <button type="submit" className="btn btn-login btn-blue mb-4">
               Login
             </button>
           </div>
         </form>
-        {error && (
-          <div className="error-message">
-            <p>{error}</p>
-          </div>
-        )}
+
         <div className="btn-group-login">
           <p className="small-text">
             Belum punya akun?
