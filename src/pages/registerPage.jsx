@@ -1,40 +1,55 @@
 import React, { useState } from "react";
 import "../style/login.css";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from '../utils/axios';
 
 const Register = () => {
-  const navigate = useNavigate();
-  const [nama_lengkap, setNama] = useState("");
+  const [namaLengkap, setNamaLengkap] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
-
+  
+    // Validate form data
+    if (!namaLengkap || !username || !email || !password) {
+      setError("Please fill in all the fields.");
+      return;
+    }
+  
     try {
-      // Kirim data pendaftaran ke backend
-      const response = await axios.post("http://localhost:3001/register", {
-        nama_lengkap,
-        username,
-        email,
-        password,
-        // Tambahkan field lainnya sesuai kebutuhan
+      const response = await axios.post("/register", {
+        nama_lengkap: namaLengkap, // Update the property name
+        username: username,
+        email: email,
+        password: password,
       });
-
-      console.log(response.data); // Cetak response dari server jika perlu
-
-      // Setelah pendaftaran berhasil, navigasi ke halaman login
-      navigate(`/login`);
+  
+      if (response && response.data && response.data.success) {
+        console.log(response.data);
+        // Redirect to the login page or perform other actions as needed
+        navigate("/login");
+      } else {
+        console.error("Invalid response format");
+        setError("Registration failed. Please check your information.");
+      }
     } catch (error) {
-      console.error("Registration failed:", error);
-      // Tangani kesalahan atau tampilkan pesan ke pengguna jika diperlukan
+      console.error("Error during registration:", error);
+  
+      if (error.response && error.response.data) {
+        setError("Registration failed. " + error.response.data.message);
+      } else {
+        setError("Registration failed. Please try again later.");
+      }
     }
   };
+  
 
   return (
-    <div className="body-login">
+    <body className="body-login">
       <div className="form-wrapper form-login">
         <h2 className="form-title-login">Register</h2>
         <form onSubmit={handleRegister}>
@@ -49,8 +64,8 @@ const Register = () => {
                 id="nama"
                 placeholder="Nama Lengkap Anda"
                 required
-                value={nama_lengkap}
-                onChange={(e) => setNama(e.target.value)}
+                value={namaLengkap}
+                onChange={(e) => setNamaLengkap(e.target.value)}
               />
             </div>
             <div className="form-group">
@@ -103,6 +118,11 @@ const Register = () => {
             </button>
           </div>
         </form>
+        {error && (
+          <div className="error-message">
+            <p>{error}</p>
+          </div>
+        )}
         <div className="btn-group-login">
           <p className="small-text">
             Sudah punya akun?
@@ -112,7 +132,7 @@ const Register = () => {
           </p>
         </div>
       </div>
-    </div>
+    </body>
   );
 };
 

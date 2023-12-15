@@ -1,37 +1,39 @@
-import React, { useState } from "react";
-import "../style/login.css";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useState } from 'react';
+import axios from '../utils/axios'; // Pastikan untuk menginstal axios dengan npm install axios
+import '../style/login.css';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      // Ganti URL dengan endpoint login yang sesuai di backend Anda
-      const response = await axios.post("http://localhost:3001/login", {
-        username,
-        password,
+      // Mengirim data login ke backend
+      console.log('Sending login request with data:', { username, password });
+      const response = await axios.post('/login', {
+        username: username,
+        password: password,
       });
+      // Jika login berhasil, Anda dapat menyimpan token ke local storage atau mengambil tindakan lain yang diperlukan
+      const token = response.data.token;
+      localStorage.setItem(`username`, token);
 
-      // Di sini Anda dapat menanggapi respons dari backend sesuai kebutuhan aplikasi Anda
-      // console.log("Login successful:", response.data);
-      // Simpan user id di Local Storage
-      localStorage.setItem("userId", response.data.user.id);
-      navigate(`/Dashboard`);
-    } catch (error) {
-      setError("Username atau password tidak sesuai");
-      // Tindakan lain yang ingin Anda lakukan jika login gagal
+      // Redirect atau lakukan tindakan lain sesuai kebutuhan
+      navigate('/akun');
+    } catch (err) {
+      // Jika login gagal, tampilkan pesan kesalahan
+      setError('Login failed. Please check your username and password.');
     }
   };
 
   return (
-    <div className="body-login">
+    <body className="body-login">
       <div className="form-wrapper form-login rounded-4">
         <h2 className="form-title-login">Login</h2>
         <form onSubmit={handleLogin}>
@@ -68,17 +70,16 @@ const LoginPage = () => {
           </div>
 
           <div className="btn-group-login">
-            {error && (
-              <div className="error-message small-text">
-                <p>{error}</p>
-              </div>
-            )}
             <button type="submit" className="btn btn-login btn-blue mb-4">
               Login
             </button>
           </div>
         </form>
-
+        {error && (
+          <div className="error-message">
+            <p>{error}</p>
+          </div>
+        )}
         <div className="btn-group-login">
           <p className="small-text">
             Belum punya akun?
@@ -88,7 +89,7 @@ const LoginPage = () => {
           </p>
         </div>
       </div>
-    </div>
+    </body>
   );
 };
 

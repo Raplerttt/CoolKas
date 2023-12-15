@@ -1,46 +1,55 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from '../utils/axios';
 import "../style/akun.css";
+
 const EditAccount = () => {
   const navigate = useNavigate();
+
+  // State to store form data
   const [formData, setFormData] = useState({
-    fullName: "",
+    namaLengkap: "",
     email: "",
     username: "",
     password: "",
     confirmPassword: "",
-    occupation: "",
   });
 
-  const [passwordStrength, setPasswordStrength] = useState("");
-
+  // Event handler for form input changes
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-
-    // Evaluasi kekuatan password
-    evaluatePasswordStrength(value);
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const evaluatePasswordStrength = (password) => {
-    // Implementasi evaluasi kekuatan password
-    // Contoh sederhana: Anggap password yang lebih dari 8 karakter sebagai "Strong"
-    const strength = password.length > 8 ? "Strong" : "Weak";
-    setPasswordStrength(strength);
-  };
-
+  // Event handler for cancelling the edit
   const handleBatal = () => {
     navigate("/akun");
-    // Implementasi fungsi edit
-    console.log("Edit Akun");
   };
 
-  const handleSubmit = () => {
-    // Implementasi fungsi submit
-    console.log("Submit Akun", formData);
+  // Event handler for submitting the edited account information
+  const handleSubmit = async () => {
+    try {
+      // Sending the edited account information to the backend
+      const response = await axios.put("/edit-akun", {
+        namaLengkap: formData.namaLengkap,
+        email: formData.email,
+        newPassword: formData.password,
+      }, {
+        headers: {
+          "x-access-token": localStorage.getItem("username"),
+        },
+      });
+
+      // If the update is successful, navigate to the account page
+      if (response.data.success) {
+        navigate("/akun");
+      } else {
+        console.error("Failed to update account:", response.data.message);
+        // Handle the error as needed
+      }
+    } catch (error) {
+      console.error("Error updating account:", error);
+      // Handle the error as needed
+    }
   };
 
   return (
@@ -57,8 +66,8 @@ const EditAccount = () => {
           type="text"
           className="input-form"
           placeholder="Nama Lengkap"
-          name="fullName"
-          value={formData.fullName}
+          name="namaLengkap"
+          value={formData.namaLengkap}
           onChange={handleChange}
           required
         />
@@ -89,23 +98,12 @@ const EditAccount = () => {
           onChange={handleChange}
           required
         />
-        {/* Indikator Kekuatan Password */}
-        <div>Password Strength: {passwordStrength}</div>
         <input
           type="password"
           className="input-form"
           placeholder="Konfirmasi Password"
           name="confirmPassword"
           value={formData.confirmPassword}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="text"
-          className="input-form"
-          placeholder="Pekerjaan"
-          name="occupation"
-          value={formData.occupation}
           onChange={handleChange}
           required
         />

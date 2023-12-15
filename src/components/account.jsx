@@ -1,33 +1,57 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../style/akun.css";
+import axios from '../utils/axios';
+
 const Account = () => {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    fullName: "",
+
+  const [accountInfo, setAccountInfo] = useState({
+    namaLengkap: "",
     email: "",
     username: "",
-    password: "",
-    occupation: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+  useEffect(() => {
+    console.log("Effect runs!");
+    // Mendapatkan token dari localStorage
+    const token = localStorage.getItem(`username`);
+    console.log("Token:", token);
+  
+    if (token) {
+      axios.get("/akun", {
+        headers: {
+          "x-access-token": token,
+        },
+      })
+        .then((response) => {
+          const accountInfo = response.data; // Update this line
+          console.log("Account Info:", accountInfo);
+          setAccountInfo(accountInfo);
+        })
+        .catch((error) => {
+          console.error("Error fetching account info:", error);
+          navigate("/login");
+        });
+    } else {
+      console.log("No token found, redirecting to login");
+      navigate("/login");
+    }
+  }, [navigate]);
+
+  // Fungsi untuk menghandle logout
+  const handleLogout = () => {
+    // Menghapus token dari session storage
+    localStorage.removeItem("namaToken");
+    
+    // Redirect ke halaman login
+    navigate("/login");
   };
 
+  // Fungsi untuk menghandle edit akun
   const handleEdit = () => {
+    // Implementasi edit akun sesuai kebutuhan, misalnya menavigasi ke halaman edit akun
     navigate("/editAkun");
-    // Implement edit functionality
-    console.log("Edit Akun");
-  };
-
-  const handleSubmit = () => {
-    // Implement submit functionality
-    console.log("Submit Akun", formData);
   };
 
   return (
@@ -39,61 +63,30 @@ const Account = () => {
           alt=""
         />
       </div>
-      <form className="form">
-        <input
-          type="text"
-          className="input-form"
-          placeholder="Nama Lengkap"
-          name="fullName"
-          value={formData.fullName}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="email"
-          className="input-form"
-          placeholder="Email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="text"
-          className="input-form"
-          placeholder="Username"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          className="input-form"
-          placeholder="Password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="text"
-          className="input-form"
-          placeholder="Pekerjaan"
-          name="occupation"
-          value={formData.occupation}
-          onChange={handleChange}
-          required
-        />
-        <div className="btn akun-btn">
-          <button className="btn-submit" type="button" onClick={handleEdit}>
-            Edit Akun
-          </button>
-          <button className="btn-submit" type="button" onClick={handleSubmit}>
-            Logout
-          </button>
-        </div>
-      </form>
+      <table className="table">
+        <tbody>
+          <tr>
+            <td>Nama Lengkap:</td>
+            <td>{accountInfo.namaLengkap}</td>
+          </tr>
+          <tr>
+            <td>Email:</td>
+            <td>{accountInfo.email}</td>
+          </tr>
+          <tr>
+            <td>Username:</td>
+            <td>{accountInfo.username}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div className="btn akun-btn">
+        <button className="btn-submit" type="button" onClick={handleEdit}>
+          Edit Akun
+        </button>
+        <button className="btn-submit" type="button" onClick={handleLogout}>
+          Logout
+        </button>
+      </div>
     </div>
   );
 };
