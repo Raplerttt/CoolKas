@@ -1,13 +1,20 @@
-// user/userService.js
+// user/userModel.js
 
-const modulModel = require("./modulModel");
+const mysql = require("mysql2/promise");
+const dbConfig = require("../../config");
+const pool = mysql.createPool(dbConfig);
 
 async function getAllModuls() {
-  return await modulModel.getAllModuls();
+  const [rows] = await pool.execute("SELECT * FROM modul_olah_bahan");
+  return rows;
 }
 
 async function getModulById(id) {
-  return await modulModel.getModulById(id);
+  const [rows] = await pool.execute(
+    "SELECT * FROM modul_olah_bahan WHERE id = ?",
+    [id]
+  );
+  return rows.length > 0 ? rows[0] : null;
 }
 
 module.exports = {

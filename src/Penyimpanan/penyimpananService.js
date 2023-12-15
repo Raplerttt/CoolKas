@@ -19,10 +19,18 @@ async function getLogAktivitas(userId) {
 async function getBahan(userId, jenisId) {
   return await penyimpananModelModel.getBahan(userId, jenisId);
 }
+async function deleteBahan(bahanId) {
+  return await penyimpananModelModel.deleteBahan(bahanId);
+}
+async function updateBahan(bahanId, bahan) {
+  return await penyimpananModelModel.updateBahan(bahanId, bahan);
+}
 module.exports = {
   getJenisBahan,
   createBahan,
   createAktivitas,
   getLogAktivitas,
   getBahan,
+  deleteBahan,
+  updateBahan,
 };
