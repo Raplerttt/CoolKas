@@ -1,8 +1,6 @@
-// config/dbConfig.js
-
 module.exports = {
-  host: 'localhost',  // Ganti dengan host database Anda
-  user: 'root',       // Ganti dengan username database Anda
-  password: '',  // Ganti dengan password database Anda
-  database: 'CoolKas',  // Ganti dengan nama database Anda
+  host: 'api.mycoolkas.my.id',
+  user: 'nhalkzwt_admin',
+  password: 's0x$r{Jw0Bh$',
+  database: 'nhalkzwt_coolkas_db',
 };
