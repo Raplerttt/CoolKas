@@ -1,7 +1,7 @@
 <h1 align="center">✨ CoolKas ✨</h1>
 
 <p align="center">
-  <img width="300" height="300" src="https://github.com/diendasls/aaaaaaa/assets/101309423/d3c25229-db17-4084-b4e3-3a80448f8811">
+  <img width="300" height="300" src="https://github.com/Raplerttt/CoolKas/blob/master/public/assets/coolkas.png">
 </p>
 
 Coolkas merupakan aplikasi web pengelolaan stok bahan makanan yang dikembangkan oleh **Tim C523-PS074** pada **Studi Independen Dicoding Cycle 5**. Website ini bertujuan untuk mengatasi permasalahan kebutuhan dan manajemen stok bahan makanan. CoolKas diharapkan dapat memberikan **manfaat yang signifikan** dalam mengurangi pemborosan makanan, membantu pengguna dalam memasak hidangan yang kreatif, serta meningkatkan kesadaran tentang tanggal kadaluarsa bahan makanan.
