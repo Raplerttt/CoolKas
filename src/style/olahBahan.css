@@ -1,0 +1,77 @@
+.deskripsi-card-olahbahan {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 5;
+  font-size: 0.8em;
+}
+.deskripsi-card-olahbahan2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+}
+
+.card-modul {
+  margin-right: 20px;
+  border-radius: 20px;
+}
+
+.judul-card {
+  color: #1d4642;
+  text-align: center;
+  margin: 10px 10px;
+}
+
+.judul-modul-olah-bahan {
+  color: #414535;
+  text-align: center;
+  margin: 10px 9px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.cara-olah-bahan {
+  text-align: justify;
+  background: #96bbbb;
+  padding: 30px 45px;
+  margin-right: 40px;
+  color: black;
+  box-shadow: rgba(50, 50, 93, 0.3) 10px 10px 10px -2px,
+    rgba(0, 0, 0, 0.3) 0px 2px 2px -3px;
+}
+.jenis-olah-bahan {
+  background: #618985;
+  padding: 30px 10px;
+  min-width: 200px;
+  color: white;
+  box-shadow: rgba(50, 50, 93, 0.3) 10px 10px 10px -2px,
+    rgba(0, 0, 0, 0.3) 0px 2px 2px -3px;
+}
+
+.vidio-tutorial {
+  margin: auto;
+}
+
+.video-container {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%; /* Membuat video mengisi lebar maksimum container */
+  margin: 20px auto; /* Atur margin sesuai kebutuhan Anda */
+}
+
+/* Style untuk membuat video responsif pada layar handphone dan tablet */
+@media (max-width: 767px) {
+  .video-container {
+    padding-bottom: 75%; /* Ganti rasio sesuai kebutuhan untuk layar tablet/handphone */
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .cara-olah-bahan {
+    margin-right: 0;
+  }
+}

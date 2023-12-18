@@ -1,0 +1,152 @@
+body {
+  font-family: "Poppins";
+  margin: 0;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 700;
+  color: #414535;
+  margin: 2rem 2rem 0rem 2rem;
+}
+
+.detail-recipe-brief {
+  display: grid;
+  grid-template-columns: 45% auto;
+  margin: 0rem auto 3rem;
+}
+
+.column1-detailresep {
+  margin-left: 5rem;
+  padding: 2rem;
+}
+
+.column1-detailresep img {
+  width: 100%;
+  text-align: center;
+  border-radius: 30px;
+  transition: transform 0.3s;
+}
+
+.column1-detailresep img:hover {
+  transform: scale(1.25);
+  box-shadow: 0px 25px 100px 0px rgba(0, 0, 0, 0.3);
+}
+
+.column2-detailresep {
+  margin: 2rem 8rem 2rem 0rem;
+}
+
+.column2-detailresep h1 {
+  text-align: left;
+  font-size: 50px;
+  font-weight: 700;
+  text-shadow: 0px 3px 3px #000;
+  color: #618985;
+  margin-bottom: 0.5rem;
+}
+
+.column2-detailresep p {
+  display: flex;
+  text-align: left;
+  font-size: 22px;
+  color: black;
+  margin-left: 1.25rem;
+}
+
+.column2-detailresep .colon p,
+.column2-detailresep .kategori-resep p,
+.column2-detailresep .asal-resep p {
+  margin-left: 0.5rem;
+}
+
+.categories {
+  display: flex;
+  width: min-content;
+  justify-content: space-evenly;
+  margin: 0 1rem 0 0;
+}
+
+.container-resep {
+  flex-direction: row;
+  border-radius: 5px;
+}
+
+.categories .container-ctgry p {
+  padding: 0.5rem 1.5rem;
+  margin-bottom: 0;
+  text-align: left;
+  font-size: 18px;
+  color: white;
+  border-radius: 15px;
+  background-color: #c19875;
+}
+
+.blue-bg {
+  background-color: #618985;
+  padding: 2rem 0rem;
+}
+
+.blue-bg .list-column {
+  display: flex;
+  flex-direction: row;
+}
+
+.list-detail-resep {
+  margin: 5rem;
+}
+
+.bahan{
+  color: #fff;
+}
+
+@media screen and (max-width: 499px){
+  .column2-detailresep h1{
+    font-size: 40px;
+  }
+
+  .column2-detailresep .categories{
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 1010px) 
+{
+  .detail-recipe-brief {
+    grid-template-columns: 1fr;
+  }
+
+  .column1-detailresep img {
+    width: 40%;
+  }
+
+  .column1-detailresep {
+    padding: 2rem;
+    margin-left: 0;
+  }
+
+  .column2-detailresep {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0rem;
+    text-align: right;
+  }
+
+  .column2-detailresep h1 {
+    text-align: center;
+  }
+  
+  .column2-detailresep p {
+    justify-content: center;
+    margin: 0 0;
+    text-align: left;
+    font-size: 22px;
+    color: black;
+  }
+
+  .column2-detailresep .categories{
+    margin: 1rem auto;
+    gap: 2rem;
+  }
+}

@@ -1,0 +1,140 @@
+.penyimpanan-judul {
+  color: #494c3d;
+}
+
+.btn-kelola {
+  background-color: #c19875;
+  box-shadow: 0 1px 5px black;
+}
+
+.text-small-penyimpanan {
+  font-size: 12px;
+}
+.btn-kelola:hover {
+  background-color: #bf8857;
+}
+
+.btn-hapuss {
+  background-color: #937c68;
+  box-shadow: 0 1px 5px black;
+}
+
+.btn-hapuss:hover {
+  background-color: #7a6350;
+}
+
+.color-soft-blue {
+  background-color: #618985;
+}
+
+.nothing-log {
+  color: #618985;
+  margin: 20px;
+}
+.penyimpanan-shadow-small {
+  text-shadow: 0 1px 1px black;
+}
+
+.penyimpanan-card {
+  flex-direction: row;
+  min-width: 200px;
+  min-height: 212px;
+}
+
+.penyimpanan-card h5 {
+  font-size: 18px;
+}
+
+.penyimpanan-card img {
+  width: 10vw;
+}
+
+.card-kadaluarsa {
+  background-color: #b10000;
+  color: white;
+}
+
+.log-tittle h1 {
+  margin-bottom: 20px;
+  color: #414535;
+  font-weight: 700;
+}
+
+.log-aktivitas {
+  background: #c19875;
+  width: 100%;
+  padding: 3px;
+  align-items: center;
+}
+
+.log-aktivitas th,
+.log-aktivitas td {
+  border: 1px solid #ddd;
+  color: #fff;
+  background: #cfac8c;
+  padding: 8px 15px;
+  text-align: left;
+}
+
+.log-aktivitas th {
+  text-align: center;
+  background: #c19875;
+  font-weight: bold;
+  color: #fff;
+}
+
+.log-aktivitas tr:hover {
+  background-color: #ddd;
+}
+
+.add-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #c19875;
+  color: #fff;
+  font-size: 24px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: #618985;
+}
+
+.container-log {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 80px;
+}
+
+@media screen and (max-width: 1200px) {
+  .penyimpanan-card {
+    min-height: 220px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .penyimpanan-card {
+    min-height: 195px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .log-tittle h1 {
+    font-size: 40px !important;
+  }
+
+  .penyimpanan-card {
+    min-height: 180px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .log-tittle h1 {
+    font-size: 30px !important;
+  }
+}
