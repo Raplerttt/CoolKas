@@ -1,6 +1,7 @@
 const express = require("express");
 const userService = require("./user.service");
 const checkToken = require("../middleware/checkToken");
+const userModel = require('./user.model');
 
 const router = express.Router();
 
@@ -64,6 +65,17 @@ router.put("/edit-akun", checkToken, async (req, res) => {
   } catch (error) {
     console.error("Error in edit-akun endpoint:", error);
     res.status(500).json({ success: false, message: "Internal server error" });
+  }
+});
+
+router.get("/check-connection", async (req, res) => {
+  try {
+    // Coba melakukan query sederhana ke database untuk mengonfirmasi koneksi
+    await userModel.checkDatabaseConnection();
+    res.status(200).json({ success: true, message: 'Connected to MySQL database!' });
+  } catch (error) {
+    console.error('Error connecting to MySQL:', error);
+    res.status(500).json({ success: false, message: 'Failed to connect to MySQL database' });
   }
 });
 
