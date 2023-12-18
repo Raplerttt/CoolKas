@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+<h1 align="center">✨ CoolKas ✨</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img width="300" height="300" src="https://github.com/diendasls/aaaaaaa/assets/101309423/d3c25229-db17-4084-b4e3-3a80448f8811">
+</p>
 
-## Available Scripts
+Coolkas merupakan aplikasi web pengelolaan stok bahan makanan yang dikembangkan oleh **Tim C523-PS074** pada **Studi Independen Dicoding Cycle 5**. Website ini bertujuan untuk mengatasi permasalahan kebutuhan dan manajemen stok bahan makanan. CoolKas diharapkan dapat memberikan **manfaat yang signifikan** dalam mengurangi pemborosan makanan, membantu pengguna dalam memasak hidangan yang kreatif, serta meningkatkan kesadaran tentang tanggal kadaluarsa bahan makanan.
 
-In the project directory, you can run:
+## 📝Fitur
+**Fitur** dalam CoolKas diantaranya:
 
-### `npm start`
+◻ ***Login dan Register***: Pengguna dapat mendaftarkan diri (*register*) untuk membuat akun dan masuk (*log in*) ke dalam website.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+◻ ***Penyimpanan***: Pengelolaan stok bahan makanan yang terbagi ke dalam 9 jenis bahan makanan, dengan menambahkan bahan-bahan makanan sesuai jenis bahannya dan terdapat fitur Reminder Kadaluarsa.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+◻ ***Log Aktivitas***: Pengelolaan aktivitas penggunaan bahan makanan
 
-### `npm test`
+◻ ***Modul Resep***: Melihat rekomendasi resep yang tersedia pada aplikasi web CoolKas.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+◻ ***Modul Olah Bahan***: Melihat beberapa tips, cara, maupun rekomendasi untuk mengelola bahan makanan yang telah kadaluarsa.
 
-### `npm run build`
+◻ ***Contact Us***: Fitur untuk berkomunikasi, mengajukan pertanyaan atau memberikan tanggapan.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+◻ ***Akun***: Melihat informasi akun pengguna aplikasi web CoolKas dan edit akun pengguna.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ✏ Kontributor
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Dalam pengembangan aplikasi web CoolKas, anggota tim yang terlibat diantaranya:
+- Moh Rafi Nasrullah - [Rafi's Profile](https://github.com/Raplerttt)
+- Derisky Amanatilah - [Derisky's Profile](https://github.com/Shaldy77)
+- Azzahra Siti Hadjar - [Azzahra's Profile](https://github.com/Azzahrasth)
+- Adinda Salsabilla - [Adinda's Profile](https://github.com/diendasls)
+- Amanda Salsabila Maharani - [Amanda's Profile](https://github.com/mandasalsa12)
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
