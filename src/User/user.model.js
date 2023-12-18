@@ -1,5 +1,3 @@
-// user.model.js
-
 const mysql = require("mysql2/promise");
 const dbConfig = require("../../config");
 const pool = mysql.createPool(dbConfig);
@@ -80,6 +78,16 @@ const userModel = {
         username,
       ]);
       return result;
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  checkDatabaseConnection: async () => {
+    try {
+      // Coba melakukan query sederhana ke database untuk mengonfirmasi koneksi
+      const [rows] = await pool.query('SELECT 1');
+      return rows;
     } catch (error) {
       throw error;
     }
