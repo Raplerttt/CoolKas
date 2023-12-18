@@ -11,7 +11,7 @@ function OlahBahanList() {
         const result = await getModuls();
         setModuls(result);
       } catch (error) {
-        console.error("Error fetching modul:", error);
+        console.error(error);
       }
     };
 

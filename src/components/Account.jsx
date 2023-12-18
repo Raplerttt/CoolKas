@@ -16,10 +16,8 @@ const Account = () => {
     console.log("Effect runs!");
     // Mendapatkan token dari localStorage
     const token = localStorage.getItem(`username`);
-    console.log("Token:", token);
 
     if (token) {
-      console.log("masuk");
       axios
         .get("/akun", {
           headers: {
@@ -28,17 +26,14 @@ const Account = () => {
         })
         .then((response) => {
           const accountInfo = response.data; // Update this line
-          console.log("Account Info:", accountInfo);
           setAccountInfo(accountInfo);
           localStorage.setItem(`ssdi_`, accountInfo.id);
         })
         .catch((error) => {
-          console.error("Error fetching account info:", error);
+          console.error(error);
           navigate("/login");
         });
     } else {
-      console.log("gamasuk");
-      console.log("No token found, redirecting to login");
       navigate("/login");
     }
   }, [navigate]);

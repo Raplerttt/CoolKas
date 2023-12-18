@@ -18,7 +18,7 @@ const DetailPenyimpanan = () => {
         const result = await getBahan(idJenis, id_user);
         setListBahan(result);
       } catch (error) {
-        console.error("Error fetching jenis bahan:", error);
+        console.error(error);
       }
     };
 
@@ -61,7 +61,6 @@ const DetailPenyimpanan = () => {
     );
     if (isConfirmed) {
       try {
-        // console.log("hapus bahan", bahanId);
         await deleteBahan(bahanId); // Ganti parameter dengan bahan.id
 
         navigate(`/modulOlahBahan/${modulJenis}`);

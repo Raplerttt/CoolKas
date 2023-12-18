@@ -15,7 +15,6 @@ const LoginPage = () => {
 
     try {
       // Mengirim data login ke backend
-      console.log("Sending login request with data:", { username, password });
       const response = await axios.post("/login", {
         username: username,
         password: password,

@@ -43,12 +43,10 @@ const EditAccount = () => {
       if (response.data.success) {
         navigate("/akun");
       } else {
-        console.error("Failed to update account:", response.data.message);
-        // Handle the error as needed
+        console.error(response.data.message);
       }
     } catch (error) {
-      console.error("Error updating account:", error);
-      // Handle the error as needed
+      console.error(error);
     }
   };
 

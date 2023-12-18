@@ -19,7 +19,7 @@ const Penyimpanan = () => {
         const aktivitas = await getLogAktivitas(id_user);
         setLogAktivitas(aktivitas);
       } catch (error) {
-        console.error("Error fetching jenis bahan:", error);
+        console.error(error);
       }
     };
 

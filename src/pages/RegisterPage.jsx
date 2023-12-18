@@ -29,7 +29,6 @@ const Register = () => {
       });
 
       if (response && response.data && response.data.success) {
-        console.log(response.data);
         // Redirect to the login page or perform other actions as needed
         navigate("/login");
       } else {

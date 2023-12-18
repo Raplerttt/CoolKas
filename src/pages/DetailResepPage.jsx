@@ -17,7 +17,7 @@ function DetailResepPage() {
         const result = await getDetailMeal(mealId);
         setMeal(result);
       } catch (error) {
-        console.error("Error fetching meals:", error);
+        console.error(error);
       }
     };
 

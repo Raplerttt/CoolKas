@@ -61,7 +61,7 @@ const Belanja = () => {
       // Setelah pendaftaran berhasil, navigasi ke halaman login
       navigate(`/penyimpanan`);
     } catch (error) {
-      console.error("Registration failed:", error);
+      console.error(error);
       // Tangani kesalahan atau tampilkan pesan ke pengguna jika diperlukan
     }
   };

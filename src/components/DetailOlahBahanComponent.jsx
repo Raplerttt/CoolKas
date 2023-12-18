@@ -14,7 +14,7 @@ function DetailOlahBahan() {
         const result = await getDetailModul(idAsNumber);
         setModul(result);
       } catch (error) {
-        console.error("Error fetching meals:", error);
+        console.error(error);
       }
     };
 

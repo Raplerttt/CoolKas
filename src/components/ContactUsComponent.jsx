@@ -16,11 +16,9 @@ function ContactUs() {
       )
       .then(
         (result) => {
-          // console.log(result.text);
           window.alert("Pesan telah berhasil di kirim!");
         },
         (error) => {
-          // console.log(error.text);
         }
       );
     e.target.reset();

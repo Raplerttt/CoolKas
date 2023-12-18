@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseUrlMealDB = "https://www.themealdb.com/api/json/v1/1";
-const baseUrlDB = "http://localhost:3001";
+const baseUrlDB = "https://api.mycoolkas.my.id";
 
 export const getMealListRandom = async () => {
   const list = await axios.get(`${baseUrlMealDB}/search.php?s=`);
