@@ -7,7 +7,7 @@ const pool = mysql.createPool(dbConfig);
 
 async function getJenisBahan(userId) {
   const [rows] = await pool.execute(
-    "SELECT j.id, j.nama_jenis_bahan, COUNT(b.id) AS jumlah_bahan, SUM(CASE WHEN b.tanggal_expired < CURRENT_DATE THEN 1 ELSE 0 END) AS jumlah_kadaluwarsa FROM jns_bahan_makanan j LEFT JOIN bahan_makanan b ON j.id = b.id_jenis_bahan AND b.id_user = ? GROUP BY j.id, j.nama_jenis_bahan",
+    "SELECT j.id, j.nama_jenis_bahan, COUNT(b.id) AS jumlah_bahan, SUM(CASE WHEN b.tanggal_expired <= CURRENT_DATE THEN 1 ELSE 0 END) AS jumlah_kadaluwarsa FROM jns_bahan_makanan j LEFT JOIN bahan_makanan b ON j.id = b.id_jenis_bahan AND b.id_user = ? GROUP BY j.id, j.nama_jenis_bahan",
     [userId]
   );
   return rows;

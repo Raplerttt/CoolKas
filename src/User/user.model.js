@@ -5,9 +5,12 @@ const dbConfig = require("../../config");
 const pool = mysql.createPool(dbConfig);
 
 const userModel = {
-  getUserById: async (Id) => {
+  getUserByUsername: async (username) => {
     try {
-      const [rows] = await pool.query("SELECT * FROM users WHERE id = ?", [Id]);
+      const [rows] = await pool.query(
+        "SELECT * FROM users WHERE username = ?",
+        [username]
+      );
       return rows;
     } catch (error) {
       throw error;
@@ -54,11 +57,11 @@ const userModel = {
     }
   },
 
-  getUserInfo: async (userId) => {
+  getUserInfo: async (username) => {
     try {
       const query =
-        "SELECT nama_lengkap AS namaLengkap, email, username FROM users WHERE username = ?";
-      const [rows] = await pool.query(query, [userId]);
+        "SELECT id, nama_lengkap AS namaLengkap, email, username FROM users WHERE username = ?";
+      const [rows] = await pool.query(query, [username]);
       return rows;
     } catch (error) {
       throw error;
